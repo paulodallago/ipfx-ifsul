@@ -10,22 +10,22 @@ const Header = () => {
     {
       label: "Início",
       icon: "pi pi-home",
-      url: "/inicio",
+      url: "/ipfx-ifsul/inicio",
     },
     {
       label: "Galeria",
       icon: "pi pi-images",
-      url: "/galeria",
+      url: "/ipfx-ifsul/galeria",
     },
     {
       label: "Linha do tempo",
       icon: "pi pi-arrows-h",
-      url: "/timeline",
+      url: "/ipfx-ifsul/timeline",
     },
     {
       label: "Sobre nós",
       icon: "pi pi-info-circle",
-      url: "/sobre",
+      url: "/ipfx-ifsul/sobre",
     },
   ];
 
