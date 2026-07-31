@@ -1,0 +1,264 @@
+.card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.25rem;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-2);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.editionTag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #9bb2ff;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0.2rem 0 0.4rem;
+}
+
+.cardDate {
+  color: var(--gray-1);
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.participantsBadge {
+  background: var(--background-gradient-2);
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+  min-width: 105px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(48, 66, 147, 0.4);
+}
+
+.participantsNumber {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.participantsLabel {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.25rem;
+}
+
+.growth {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6dffb0;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.coverBtn {
+  position: relative;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+}
+
+.cover {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.coverBtn:hover .cover {
+  transform: scale(1.05);
+}
+
+.coverOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    rgba(29, 57, 136, 0),
+    rgba(90, 22, 129, 0)
+  );
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    background 0.25s ease;
+}
+
+.coverOverlay i {
+  font-size: 1.6rem;
+}
+
+.coverBtn:hover .coverOverlay,
+.coverBtn:focus-visible .coverOverlay {
+  opacity: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(29, 57, 136, 0.75),
+    rgba(90, 22, 129, 0.75)
+  );
+}
+
+.thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.thumbBtn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+}
+
+.thumb {
+  width: 100%;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0.85;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  display: block;
+}
+
+.thumbBtn:hover .thumb,
+.thumbBtn:focus-visible .thumb {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.championsBlock {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.9rem;
+}
+
+.championsTitle {
+  color: #ffd166;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.championsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.championItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  border-left: 3px solid #9a275d;
+}
+
+.modality {
+  color: var(--gray-1);
+  font-size: 0.85rem;
+}
+
+.team,
+.teamPlain {
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.teamUnavailable {
+  color: var(--gray-1);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.team {
+  cursor: help;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.35);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+@media (max-width: 900px) {
+  .cardHeader {
+    flex-wrap: wrap;
+  }
+
+  .participantsBadge {
+    min-width: 95px;
+  }
+
+  .cover {
+    height: 140px;
+  }
+}

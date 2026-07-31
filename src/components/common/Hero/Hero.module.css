@@ -1,0 +1,39 @@
+.container {
+  background: var(--black-1);
+  height: 100%;
+  padding: 2vh 0;
+}
+
+.hero {
+  height: 50vh;
+  width: 70vw;
+  margin: 0 auto;
+  background: var(--bright-gradient);
+  border-radius: 10px;
+  display: flex;
+  box-shadow: var(--shadow-2);
+}
+
+.mainImg {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 5vw;
+}
+
+.title {
+  color: var(--dk-green);
+}
+
+.description {
+  color: black;
+  font-size: var(--font-2);
+  margin-top: 10px;
+}

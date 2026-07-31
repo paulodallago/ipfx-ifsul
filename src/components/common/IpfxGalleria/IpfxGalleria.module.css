@@ -1,0 +1,22 @@
+.galleriaItem {
+  display: block;
+  max-width: 92vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.galleriaThumb {
+  display: block;
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.galleriaCaption {
+  display: block;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+}
