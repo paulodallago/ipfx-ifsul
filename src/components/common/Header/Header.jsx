@@ -2,30 +2,32 @@ import React, { useState } from "react";
 import { Menubar } from "primereact/menubar";
 import { ReactComponent as Logo } from "../../../assets/img/logo.svg";
 import styles from "./Header.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const items = [
     {
       label: "Início",
       icon: "pi pi-home",
-      url: "/ipfx-ifsul/inicio",
+      command: () => navigate("/"),
     },
     {
       label: "Galeria",
       icon: "pi pi-images",
-      url: "/ipfx-ifsul/galeria",
+      command: () => navigate("/galeria"),
     },
     {
       label: "Linha do tempo",
       icon: "pi pi-arrows-h",
-      url: "/ipfx-ifsul/timeline",
+      command: () => navigate("/timeline"),
     },
     {
       label: "Sobre nós",
       icon: "pi pi-info-circle",
-      url: "/ipfx-ifsul/sobre",
+      command: () => navigate("/sobre"),
     },
   ];
 
@@ -39,7 +41,7 @@ const Header = () => {
     <>
       <div className={styles.menuRight}>
         {items.map((item, i) => (
-          <a key={i} href={item.url} className={styles.menuLink}>
+          <a key={i} onClick={() => item.command()} className={styles.menuLink}>
             <i className={item.icon}></i>
             <span>{item.label}</span>
           </a>
@@ -58,10 +60,10 @@ const Header = () => {
           {items.map((item, i) => (
             <a
               key={i}
-              href={item.url}
               className={styles.mobileLink}
               onClick={() => {
                 setMenuOpen(false);
+                item.command();
               }}
             >
               <i className={item.icon}></i>
