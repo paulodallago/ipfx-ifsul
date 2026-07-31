@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/ipfx-ifsul/static/css/main.48f40faf.css",
+    "main.js": "/ipfx-ifsul/static/js/main.d20f0fcf.js",
+    "static/media/01.jpg": "/ipfx-ifsul/static/media/01.bd646858cf38cbe02866.jpg",
+    "static/media/02.jpg": "/ipfx-ifsul/static/media/02.5151852030a7c84febb8.jpg",
+    "static/media/03.jpg": "/ipfx-ifsul/static/media/03.56b8a24a61f4c0a9b965.jpg",
+    "static/media/04.jpg": "/ipfx-ifsul/static/media/04.3efcb47c5d38d8e9e28d.jpg",
+    "static/media/01.png": "/ipfx-ifsul/static/media/01.8a18eb81a94dca2fb13f.png",
+    "static/media/01.jpeg": "/ipfx-ifsul/static/media/01.8143c85079d0dbf27cf9.jpeg",
+    "static/media/02.jpeg": "/ipfx-ifsul/static/media/02.cfd4a4aaedb6baf35a97.jpeg",
+    "static/media/chess.png": "/ipfx-ifsul/static/media/chess.2055443e707561eb672a.png",
+    "static/media/04.png": "/ipfx-ifsul/static/media/04.eafc903e6104fe3234ad.png",
+    "static/media/primeicons.svg": "/ipfx-ifsul/static/media/primeicons.6ed59f962963a4a73af2.svg",
+    "static/media/03.jpeg": "/ipfx-ifsul/static/media/03.ac684276f5cfa4fb7ec4.jpeg",
+    "static/media/04.jpeg": "/ipfx-ifsul/static/media/04.b545cff142dd9043389e.jpeg",
+    "static/media/primeicons.eot": "/ipfx-ifsul/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
+    "static/media/primeicons.woff": "/ipfx-ifsul/static/media/primeicons.8931fda1930c3bd21e96.woff",
+    "static/media/primeicons.ttf": "/ipfx-ifsul/static/media/primeicons.a5c2a53d1ff7a9ff5933.ttf",
+    "static/media/primeicons.woff2": "/ipfx-ifsul/static/media/primeicons.024b32cc7bf399b1a847.woff2",
+    "static/media/logo_pf.png": "/ipfx-ifsul/static/media/logo_pf.828fbfc6187e18d232d6.png",
+    "static/media/logo_cc.jpeg": "/ipfx-ifsul/static/media/logo_cc.a369c3b3f07a4992c8df.jpeg",
+    "static/media/logo.svg": "/ipfx-ifsul/static/media/logo.cbb0d33d03087eedf5fe5e4ac93e3cd5.svg",
+    "index.html": "/ipfx-ifsul/index.html",
+    "main.48f40faf.css.map": "/ipfx-ifsul/static/css/main.48f40faf.css.map",
+    "main.d20f0fcf.js.map": "/ipfx-ifsul/static/js/main.d20f0fcf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48f40faf.css",
+    "static/js/main.d20f0fcf.js"
+  ]
+}
