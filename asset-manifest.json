@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ipfx-ifsul/static/css/main.9ebdbe39.css",
-    "main.js": "/ipfx-ifsul/static/js/main.94911dea.js",
+    "main.css": "/ipfx-ifsul/static/css/main.fb47fe50.css",
+    "main.js": "/ipfx-ifsul/static/js/main.fd0fe04c.js",
     "static/media/01.jpg": "/ipfx-ifsul/static/media/01.bd646858cf38cbe02866.jpg",
     "static/media/02.jpg": "/ipfx-ifsul/static/media/02.5151852030a7c84febb8.jpg",
     "static/media/03.jpg": "/ipfx-ifsul/static/media/03.56b8a24a61f4c0a9b965.jpg",
@@ -24,11 +24,11 @@
     "static/media/logo_cc.jpeg": "/ipfx-ifsul/static/media/logo_cc.a369c3b3f07a4992c8df.jpeg",
     "static/media/logo.svg": "/ipfx-ifsul/static/media/logo.cbb0d33d03087eedf5fe5e4ac93e3cd5.svg",
     "index.html": "/ipfx-ifsul/index.html",
-    "main.9ebdbe39.css.map": "/ipfx-ifsul/static/css/main.9ebdbe39.css.map",
-    "main.94911dea.js.map": "/ipfx-ifsul/static/js/main.94911dea.js.map"
+    "main.fb47fe50.css.map": "/ipfx-ifsul/static/css/main.fb47fe50.css.map",
+    "main.fd0fe04c.js.map": "/ipfx-ifsul/static/js/main.fd0fe04c.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ebdbe39.css",
-    "static/js/main.94911dea.js"
+    "static/css/main.fb47fe50.css",
+    "static/js/main.fd0fe04c.js"
   ]
 }
