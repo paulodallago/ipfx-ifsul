@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { PrimeReactProvider } from "primereact/api";
-import "primereact/resources/themes/bootstrap4-dark-blue/theme.css";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import React from "react";
@@ -10,7 +10,6 @@ import Footer from "./components/common/Footer/Footer";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import Gallery from "./views/Gallery/Gallery";
 import About from "./views/About/About";
-import Contact from "./components/common/Contact/Contact";
 import PastEditions from "./views/PastEditions/PastEditions";
 
 const App = () => {

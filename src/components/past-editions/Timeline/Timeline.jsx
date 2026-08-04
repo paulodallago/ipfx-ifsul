@@ -62,11 +62,13 @@ const Timeline = () => {
               key={ed.edition}
               className={`${styles.row} ${isLeft ? styles.rowLeft : styles.rowRight}`}
             >
-              <EditionCard
-                edition={ed}
-                delta={delta}
-                onOpenGallery={openGallery}
-              />
+              <div className={styles.card}>
+                <EditionCard
+                  edition={ed}
+                  delta={delta}
+                  onOpenGallery={openGallery}
+                />
+              </div>
               <div className={styles.marker} aria-hidden="true">
                 <span className={styles.markerInner}>{ed.edition}</span>
               </div>

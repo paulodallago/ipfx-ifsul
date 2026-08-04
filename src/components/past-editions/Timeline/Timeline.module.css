@@ -34,35 +34,46 @@
   left: 50%;
   width: 3px;
   transform: translateX(-50%);
-  background: linear-gradient(180deg, #2c53ff, #604deb, #9a275d);
+  background: var(--gold-gradient);
   border-radius: 2px;
   opacity: 0.85;
 }
 
 .row {
-  position: relative;
   display: grid;
   grid-template-columns: 1fr 60px 1fr;
-  align-items: start;
-  margin-bottom: 4rem;
 }
 
 .marker {
   grid-column: 2;
-  grid-row: 1;
+  justify-self: center;
+
+  position: relative;
+  width: 56px;
+  height: 56px;
+
+  z-index: 2;
+
+  transform: translateX(140%);
+
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--background-gradient-3);
+  background: var(--gold-gradient);
+
   display: flex;
   align-items: center;
   justify-content: center;
   justify-self: center;
-  margin-top: 1.25rem;
   box-shadow:
-    0 0 0 4px var(--background-1),
-    0 0 20px rgba(96, 77, 235, 0.6);
+    0 0 0 4px var(--gold),
+    0 0 20px var(--gold);
   z-index: 2;
+}
+
+.rowRight .marker {
+  left: 0;
+  transform: translateX(-140%);
 }
 
 .markerInner {
@@ -143,7 +154,7 @@
   );
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .timeline {
     width: 92vw;
   }
@@ -155,16 +166,14 @@
 
   .row {
     grid-template-columns: 56px 1fr;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
   }
 
   .marker {
-    grid-column: 1;
     justify-self: center;
-    margin: 1rem 0 0;
-    width: 48px;
-    height: 48px;
+
+    position: absolute;
+
+    transform: none !important;
   }
 
   .statsStrip {
@@ -182,5 +191,7 @@
     grid-row: 1;
     justify-self: stretch;
     max-width: none;
+    margin: 1rem 0;
+    margin-bottom: 1rem;
   }
 }

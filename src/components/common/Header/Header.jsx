@@ -1,30 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import { Menubar } from "primereact/menubar";
 import { ReactComponent as Logo } from "../../../assets/img/logo.svg";
 import styles from "./Header.module.css";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const items = [
     {
+      key: "home",
       label: "Início",
       icon: "pi pi-home",
       command: () => navigate("/"),
     },
     {
+      key: "gallery",
       label: "Galeria",
       icon: "pi pi-images",
       command: () => navigate("/galeria"),
     },
     {
+      key: "timeline",
       label: "Linha do tempo",
       icon: "pi pi-arrows-h",
       command: () => navigate("/timeline"),
     },
     {
+      key: "about",
       label: "Sobre nós",
       icon: "pi pi-info-circle",
       command: () => navigate("/sobre"),
@@ -37,45 +40,7 @@ const Header = () => {
     </div>
   );
 
-  const end = (
-    <>
-      <div className={styles.menuRight}>
-        {items.map((item, i) => (
-          <a key={i} onClick={() => item.command()} className={styles.menuLink}>
-            <i className={item.icon}></i>
-            <span>{item.label}</span>
-          </a>
-        ))}
-      </div>
-
-      <button
-        className={styles.hamburger}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <i className="pi pi-bars"></i>
-      </button>
-
-      {menuOpen && (
-        <div className={styles.mobileMenu}>
-          {items.map((item, i) => (
-            <a
-              key={i}
-              className={styles.mobileLink}
-              onClick={() => {
-                setMenuOpen(false);
-                item.command();
-              }}
-            >
-              <i className={item.icon}></i>
-              <span>{item.label}</span>
-            </a>
-          ))}
-        </div>
-      )}
-    </>
-  );
-
-  return <Menubar start={start} end={end} className={styles.menuBar} />;
+  return <Menubar model={items} start={start} className={styles.menuBar} />;
 };
 
 export default Header;

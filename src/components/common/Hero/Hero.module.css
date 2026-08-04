@@ -17,6 +17,7 @@
 .mainImg {
   height: 100%;
   border-radius: 10px;
+  max-width: 100%;
 }
 
 .text {
@@ -36,4 +37,11 @@
   color: black;
   font-size: var(--font-2);
   margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: fit-content;
+  }
 }
