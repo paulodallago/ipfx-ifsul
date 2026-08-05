@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ipfx-ifsul/static/css/main.135b9643.css",
+    "main.css": "/ipfx-ifsul/static/css/main.6cfefbea.css",
     "main.js": "/ipfx-ifsul/static/js/main.dbc39f9a.js",
     "static/media/01.jpg": "/ipfx-ifsul/static/media/01.bd646858cf38cbe02866.jpg",
     "static/media/02.jpg": "/ipfx-ifsul/static/media/02.5151852030a7c84febb8.jpg",
@@ -24,11 +24,11 @@
     "static/media/logo_pf.png": "/ipfx-ifsul/static/media/logo_pf.828fbfc6187e18d232d6.png",
     "static/media/logo.svg": "/ipfx-ifsul/static/media/logo.cbb0d33d03087eedf5fe5e4ac93e3cd5.svg",
     "index.html": "/ipfx-ifsul/index.html",
-    "main.135b9643.css.map": "/ipfx-ifsul/static/css/main.135b9643.css.map",
+    "main.6cfefbea.css.map": "/ipfx-ifsul/static/css/main.6cfefbea.css.map",
     "main.dbc39f9a.js.map": "/ipfx-ifsul/static/js/main.dbc39f9a.js.map"
   },
   "entrypoints": [
-    "static/css/main.135b9643.css",
+    "static/css/main.6cfefbea.css",
     "static/js/main.dbc39f9a.js"
   ]
 }
