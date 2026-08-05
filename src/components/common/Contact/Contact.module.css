@@ -15,8 +15,12 @@
   gap: 2rem;
 }
 
+.contactImage {
+  margin: auto;
+}
+
 .contactImage img {
-  width: 100%;
+  width: 60%;
   max-width: 250px;
   object-fit: contain;
 }

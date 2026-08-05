@@ -1,14 +1,37 @@
 import React from "react";
-import logo from "../../../assets/img/logo_cc.jpeg";
+import logo from "../../../assets/img/logo_cc.png";
 import styles from "./Contact.module.css";
 
 const Contact = () => {
+  const items = [
+    {
+      icon: "pi pi-instagram",
+      text: "@arenagamesifsul",
+      link: "https://www.instagram.com/arenagamesifsul/",
+    },
+    {
+      icon: "pi pi-envelope",
+      text: "pf-arenagames@ifsul.edu.br",
+      link: "mailto:pf-arenagames@ifsul.edu.br",
+    },
+    {
+      icon: "pi pi-map-marker",
+      text: "Est. Perimetral Leste, 150. Passo Fundo - RS",
+      link: "https://maps.app.goo.gl/MRCNfrXAJCsP1LvD9",
+    },
+    {
+      icon: "pi pi-phone",
+      text: "(54) 2024-0400",
+      link: "tel:+555420240400",
+    },
+  ];
+
   return (
     <>
       <section className={styles.contact}>
         <div className={styles.container}>
           <div className={styles.contactContent}>
-            <div className={styles.contactImage}>
+            <div className={styles.contactImage + " simpleHover"}>
               <img src={logo} alt="Entre em contato" />
             </div>
 
@@ -24,46 +47,17 @@ const Contact = () => {
               <h2 className="underlineText">Fale Conosco</h2>
 
               <div className={styles.contactInfo}>
-                <p>
-                  <i
-                    className="pi pi-map-marker defaultHover-2"
-                    onClick={() =>
-                      window.open(
-                        "https://maps.app.goo.gl/MRCNfrXAJCsP1LvD9",
-                        "_blank",
-                      )
-                    }
-                  />
-                  Est. Perimetral Leste, 150. Passo Fundo - RS
-                </p>
-                <p>
-                  <i
-                    className="pi pi-envelope defaultHover-2"
-                    onClick={() =>
-                      window.open(
-                        "mailto:pf-arenagames@ifsul.edu.br",
-                        "noopener",
-                      )
-                    }
-                  />
-                  pf-arenagames@ifsul.edu.br
-                </p>
-                <p>
-                  <i className="pi pi-phone defaultHover-2" />
-                  (54) 2024-0400
-                </p>
-                <p>
-                  <i
-                    className="pi pi-instagram defaultHover-2"
-                    onClick={() =>
-                      window.open(
-                        "https://www.instagram.com/arenagamesifsul/",
-                        "_blank",
-                      )
-                    }
-                  />
-                  @arenagamesifsul
-                </p>
+                {items.map((item, index) => {
+                  return (
+                    <p>
+                      <i
+                        className={"pi " + item.icon + " defaultHover-2"}
+                        onClick={() => window.open(item.link, "_blank")}
+                      />
+                      {item.text}
+                    </p>
+                  );
+                })}
               </div>
 
               <div className={styles.footerSocial}>

@@ -1,3 +1,5 @@
+//TODO
+
 import edition_1_01 from "../../assets/img/editions/edition_1/01.jpg";
 import edition_1_02 from "../../assets/img/editions/edition_1/02.jpg";
 import edition_1_03 from "../../assets/img/editions/edition_1/03.jpg";
@@ -27,15 +29,26 @@ const editionsContent = [
   {
     edition: "I",
     name: "Arena Games I",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     date: "Jun/2023",
     participants: 23,
     cover: edition_1_01,
-    gallery: [edition_1_02, edition_1_03, edition_1_04],
+    gallery: [
+      edition_1_02,
+      edition_1_03,
+      edition_1_04,
+      edition_2_02,
+      edition_2_03,
+      edition_2_04,
+    ],
     champions: [{ modality: "Counter Strike", team: "", players: [] }],
   },
   {
     edition: "II",
     name: "Arena Games II",
+    description:
+      "Descricao 2 lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     date: "Out/2024",
     participants: 37,
     cover: edition_2_01,

@@ -13,13 +13,20 @@
   --font-black: #0c0c0c;
   --font-white: #f4f4f4;
 
+  --lime: #9ae157;
+  --acqua: #34bdad;
+
   --gold-gradient: linear-gradient(90deg, var(--gold-1), var(--gold));
-  --bright-gradient: linear-gradient(135deg, #9ae157, #34bdad);
+  --bright-gradient: linear-gradient(135deg, var(--lime), var(--acqua));
   --green-gradient: linear-gradient(150deg, #355a46, #258a52);
-  --dark-gradient: linear-gradient(90deg, #1f2a24, #387955);
+  --dark-gradient: linear-gradient(0deg, var(--black-2), var(--black-1));
+  /* linear-gradient(90deg, #2c53ff, #9a275d) */
+  /* linear-gradient(90deg, #304293, #4a90e2) */
 
   --shadow-1: 0px 0px 11px 2px #0d0d0d97;
   --shadow-2: 0px 0px 5px 2px #0d0d0d68;
+  --light-shadow-1: 0px 0px 11px 2px #ffffff44;
+  --dark-shadow-1: 0px 0px 11px 2px #000000;
 
   --header-height: 10vh;
 
@@ -34,7 +41,7 @@ body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   overflow-x: hidden;
-  background: var(--white-1);
+  background: var(--black-1);
   color: var(--white-1);
 }
 
@@ -99,23 +106,12 @@ body {
   transition: transform 0.2s ease-in-out;
 }
 
-.underline::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(90deg, #304293, #4a90e2);
-}
-
-.separator {
-  width: 80%;
-  height: 2px;
-  margin: 5px auto;
+hr {
+  margin: 5vh auto;
   border: none;
-  background: linear-gradient(90deg, #2c53ff, #9a275d);
+  height: 2px;
+  width: 30%;
+  background: var(--gold-gradient);
 }
 
 .underlineText {
@@ -133,7 +129,7 @@ body {
 
   width: 80%;
   height: 2px;
-  background: linear-gradient(90deg, #2c53ff, #9a275d);
+  background: var(--bright-gradient);
 
   transform: translate(-50%);
 }

@@ -36,7 +36,10 @@ const Header = () => {
 
   const start = (
     <div className={styles.menuLeft}>
-      <Logo className={styles.logo} />
+      <Logo
+        className={styles.logo + " simpleHover"}
+        onClick={() => navigate("/")}
+      />
     </div>
   );
 

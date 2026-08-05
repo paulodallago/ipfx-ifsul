@@ -17,15 +17,13 @@ const App = () => {
     <PrimeReactProvider>
       <HashRouter basename="/">
         <Header />
-        <div style={{ paddingTop: "10vh" }}>
-          <Routes>
-            <Route path="*" element={<Navigate to="/" replace />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/galeria" element={<Gallery />} />
-            <Route path="/sobre" element={<About />} />
-            <Route path="/timeline" element={<PastEditions />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/galeria" element={<Gallery />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/timeline" element={<PastEditions />} />
+        </Routes>
         <Footer />
       </HashRouter>
     </PrimeReactProvider>

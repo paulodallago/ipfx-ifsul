@@ -1,105 +1,50 @@
-.rowLeft div {
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: end;
-  margin-right: 1.25rem;
-}
-
-.rowRight div {
-  grid-column: 3;
-  grid-row: 1;
-  justify-self: start;
-  margin-left: 1.25rem;
-}
-
 .section {
-  margin: 0 0;
-  padding: 4vh 0 2vh;
+  padding: calc(var(--header-height) + 2vh) 0 2vh;
   background: var(--black-1);
   box-shadow: var(--shadow-1);
 }
 
 .timeline {
-  position: relative;
-  width: 90vw;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 0;
+  width: 80vw;
+  margin: auto;
 }
 
-.timelineLine {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
+.timeline :global(.p-timeline-event-opposite) {
+  flex: 1;
+}
+
+.timeline :global(.p-timeline-event-content) {
+  flex: 1;
+}
+
+.timeline :global(.p-timeline-event-separator) {
+  flex: 0;
+}
+
+.timeline :global(.p-timeline-event-connector) {
   width: 3px;
-  transform: translateX(-50%);
   background: var(--gold-gradient);
-  border-radius: 2px;
-  opacity: 0.85;
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 1fr 60px 1fr;
+  opacity: 0.9;
 }
 
 .marker {
-  grid-column: 2;
-  justify-self: center;
-
-  position: relative;
   width: 56px;
   height: 56px;
 
-  z-index: 2;
-
-  transform: translateX(140%);
-
-  width: 56px;
-  height: 56px;
   border-radius: 50%;
-  background: var(--gold-gradient);
 
+  background: var(--gold-gradient);
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-self: center;
-  box-shadow:
-    0 0 0 4px var(--gold),
-    0 0 20px var(--gold);
-  z-index: 2;
-}
 
-.rowRight .marker {
-  left: 0;
-  transform: translateX(-140%);
-}
-
-.markerInner {
   color: white;
   font-weight: 800;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-}
+  font-size: 1rem;
 
-.team:hover,
-.team:focus-visible {
-  color: #9bb2ff;
-  border-bottom-color: #9bb2ff;
-  outline: none;
-}
-
-:global(.p-tooltip) :global(.p-tooltip-text) {
-  white-space: pre-line;
-  background: rgba(15, 18, 38, 0.96);
-  color: white;
-  border: 1px solid rgba(155, 178, 255, 0.35);
-  border-radius: 8px;
-  padding: 0.55rem 0.75rem;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    0 0 0 4px var(--black-2),
+    0 0 20px var(--gold);
 }
 
 .statsStrip {
@@ -129,7 +74,7 @@
   color: white;
   font-size: 2rem;
   font-weight: 800;
-  background: linear-gradient(90deg, #4a90e2, #9a275d);
+  background: var(--gold-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -144,6 +89,7 @@
 }
 
 .statDivider {
+  display: block;
   width: 1px;
   height: 40px;
   background: linear-gradient(
@@ -155,43 +101,65 @@
 }
 
 @media (max-width: 768px) {
-  .timeline {
-    width: 92vw;
-  }
-
-  .timelineLine {
-    left: 28px;
-    transform: none;
-  }
-
-  .row {
-    grid-template-columns: 56px 1fr;
-  }
-
-  .marker {
-    justify-self: center;
-
-    position: absolute;
-
-    transform: none !important;
-  }
-
-  .statsStrip {
-    gap: 1rem;
-    padding: 1.2rem 0.5rem;
+  .section {
+    padding: calc(var(--header-height) + 2vh) 0 2vh;
+    background: var(--black-1);
+    box-shadow: var(--shadow-1);
   }
 
   .statDivider {
     display: none;
   }
 
-  .rowLeft div,
-  .rowRight div {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: stretch;
-    max-width: none;
-    margin: 1rem 0;
-    margin-bottom: 1rem;
+  .timeline {
+    width: min(90vw, 1200px);
+    margin: auto;
+  }
+
+  .timeline :global(.p-timeline-event-opposite) {
+    flex: 1;
+  }
+
+  .timeline :global(.p-timeline-event-content) {
+    flex: 1;
+  }
+
+  .timeline :global(.p-timeline-event-separator) {
+    flex: 0;
+  }
+
+  .timeline :global(.p-timeline-event-connector) {
+    width: 3px;
+    background: var(--gold-gradient);
+    opacity: 0.9;
+  }
+
+  .marker {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 50%;
+
+    background: var(--gold-gradient);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-weight: 800;
+    font-size: 1rem;
+
+    box-shadow:
+      0 0 0 4px var(--gold),
+      0 0 20px var(--gold);
+  }
+
+  .timeline :global(.p-timeline-event-content) {
+    padding-bottom: 4rem;
+  }
+
+  .timeline :global(.p-timeline-event-opposite) {
+    padding-bottom: 4rem;
   }
 }

@@ -1,31 +1,6 @@
 .container {
   padding: 4vh 2vh;
-  background: var(--black-1);
+  padding-top: var(--header-height);
+  background: var(--dark-gradient);
   box-shadow: var(--shadow-1);
-}
-
-.text {
-  text-align: center;
-  color: var(--white-1);
-  margin-bottom: 4vh;
-}
-
-.image {
-  height: 40vh;
-  margin: 0 1vw;
-}
-
-.gallery {
-  position: relative;
-  max-width: 80vw;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  overflow-x: scroll;
-}
-
-@media (max-width: 768px) {
-  .timeline {
-    width: 92vw;
-  }
 }
