@@ -88,7 +88,7 @@ const EditionCard = ({ edition, delta, onOpenGallery }) => {
         </div>
       </header>
 
-      <section className={styles.gallery}>
+      <section>
         <button
           type="button"
           className={styles.coverBtn}
@@ -106,24 +106,6 @@ const EditionCard = ({ edition, delta, onOpenGallery }) => {
             <span>Ver {photoCount} fotos</span>
           </span>
         </button>
-
-        <div className={styles.thumbs}>
-          {edition.gallery.slice(0, 3).map((src, index) => (
-            <button
-              key={src}
-              type="button"
-              className={styles.thumbBtn}
-              onClick={() => onOpenGallery(edition, index + 1)}
-              aria-label={`Abrir foto ${index + 1} de ${edition.name}`}
-            >
-              <img
-                src={src}
-                alt={`${edition.name} - foto ${index + 1}`}
-                className={styles.thumb}
-              />
-            </button>
-          ))}
-        </div>
       </section>
 
       <section className={styles.championsBlock}>

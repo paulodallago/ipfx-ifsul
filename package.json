@@ -4,6 +4,7 @@
   "homepage": "https://paulodallago.github.io/ipfx-ifsul",
   "private": true,
   "dependencies": {
+    "@primereact/hooks": "^11.0.0",
     "eslint-config-react-app": "^7.0.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.7",

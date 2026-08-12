@@ -141,3 +141,7 @@ hr {
 .p-carousel-item:has(.mainCarousel) {
   margin-top: 0;
 }
+
+.pi-lichess {
+  content: url("./assets/img/lichess.svg");
+}

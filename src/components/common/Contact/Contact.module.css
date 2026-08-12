@@ -69,6 +69,7 @@
 .contactText i {
   margin-right: 1rem;
   font-size: var(--font-2);
+  height: var(--font-2);
 }
 
 .contactText h2,

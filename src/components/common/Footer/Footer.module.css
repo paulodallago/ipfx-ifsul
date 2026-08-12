@@ -50,10 +50,9 @@
 }
 
 .footerDivider {
-  width: 80%;
+  width: 50%;
   margin: 1.5rem 0;
-  border: none;
-  border-top: 1px solid #ddd;
+  background: var(--bright-gradient) !important;
 }
 
 .footerContent {

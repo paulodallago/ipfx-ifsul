@@ -1,5 +1,7 @@
 .edition {
   padding: 2vh 0;
+  width: 90vw;
+  margin: auto;
 }
 
 .text {
@@ -10,9 +12,6 @@
 
 .galleryWrapper {
   position: relative;
-  width: 90vw;
-  margin: auto;
-  border-radius: 20px;
 }
 
 .galleryWrapper::before,

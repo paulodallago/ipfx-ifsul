@@ -23,7 +23,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #9bb2ff;
+  color: var(--gold);
   text-transform: uppercase;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .participantsBadge {
-  background: var(--background-gradient-2);
+  background: var(--gold-gradient);
   border-radius: 12px;
   padding: 0.6rem 0.8rem;
   text-align: center;
@@ -51,7 +51,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 4px 15px rgba(48, 66, 147, 0.4);
+  box-shadow: 0 4px 15px var(--gold);
 }
 
 .participantsNumber {
@@ -80,13 +80,6 @@
   background: rgba(0, 0, 0, 0.25);
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
 }
 
 .coverBtn {
@@ -144,47 +137,8 @@
 
 .coverBtn:hover .coverOverlay,
 .coverBtn:focus-visible .coverOverlay {
-  opacity: 1;
-  background: linear-gradient(
-    135deg,
-    rgba(29, 57, 136, 0.75),
-    rgba(90, 22, 129, 0.75)
-  );
-}
-
-.thumbs {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.thumbBtn {
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 8px;
-  overflow: hidden;
-  display: block;
-  width: 100%;
-}
-
-.thumb {
-  width: 100%;
-  height: 56px;
-  object-fit: cover;
-  border-radius: 8px;
-  opacity: 0.85;
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-  display: block;
-}
-
-.thumbBtn:hover .thumb,
-.thumbBtn:focus-visible .thumb {
-  opacity: 1;
-  transform: scale(1.05);
+  opacity: 0.7;
+  background: var(--gold-gradient);
 }
 
 .championsBlock {
@@ -219,7 +173,7 @@
   background: rgba(0, 0, 0, 0.25);
   padding: 0.45rem 0.7rem;
   border-radius: 8px;
-  border-left: 3px solid #9a275d;
+  border-left: 3px solid var(--gold);
 }
 
 .modality {
@@ -251,8 +205,13 @@
 }
 
 @media (max-width: 768px) {
+  .card {
+    max-width: 90%;
+  }
+
   .cardHeader {
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .participantsBadge {

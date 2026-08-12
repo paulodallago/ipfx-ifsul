@@ -5,6 +5,7 @@ import styles from "./Timeline.module.css";
 import editionsContent from "../../../assets/json/editionsContent";
 import EditionCard from "../EditionCard/EditionCard";
 import IpfxGalleria from "../../common/IpfxGalleria/IpfxGalleria";
+import { useMatchMedia } from "@primereact/hooks";
 
 const Timeline = () => {
   const totalParticipants = editionsContent.reduce(
@@ -67,17 +68,21 @@ const Timeline = () => {
       edition={item.edition}
       delta={item.delta}
       onOpenGallery={openGallery}
+      className={styles.editionCard}
     />
   );
+
+  const isMobile = useMatchMedia("(max-width: 768px)");
 
   return (
     <section className={styles.section}>
       <PrimeTimeline
         value={events}
-        align="alternate"
+        align={isMobile ? "left" : "down"}
         className={styles.timeline}
         marker={marker}
         content={content}
+        layout={isMobile ? "vertical" : "horizontal"}
       />
 
       <div className={styles.statsStrip}>

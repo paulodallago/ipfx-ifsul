@@ -6,13 +6,18 @@ const Contact = () => {
   const items = [
     {
       icon: "pi pi-instagram",
-      text: "@arenagamesifsul",
-      link: "https://www.instagram.com/arenagamesifsul/",
+      text: "@ipfxadrez",
+      link: "https://www.instagram.com/ipfxadrez/",
     },
     {
-      icon: "pi pi-envelope",
-      text: "pf-arenagames@ifsul.edu.br",
-      link: "mailto:pf-arenagames@ifsul.edu.br",
+      icon: "pi pi-youtube",
+      text: "YouTube",
+      link: "https://www.youtube.com/@ipfxadrez",
+    },
+    {
+      icon: "pi pi-lichess",
+      text: "Lichess",
+      link: "https://lichess.org/team/ifsulpfchess",
     },
     {
       icon: "pi pi-map-marker",
@@ -49,7 +54,7 @@ const Contact = () => {
               <div className={styles.contactInfo}>
                 {items.map((item, index) => {
                   return (
-                    <p>
+                    <p key={index}>
                       <i
                         className={"pi " + item.icon + " defaultHover-2"}
                         onClick={() => window.open(item.link, "_blank")}

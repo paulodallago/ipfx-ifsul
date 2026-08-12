@@ -22,8 +22,8 @@ const Header = () => {
     },
     {
       key: "timeline",
-      label: "Linha do tempo",
-      icon: "pi pi-arrows-h",
+      label: "Eventos realizados",
+      icon: "pi pi-calendar",
       command: () => navigate("/timeline"),
     },
     {
