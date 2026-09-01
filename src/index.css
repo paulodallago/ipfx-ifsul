@@ -114,13 +114,13 @@ hr {
   background: var(--gold-gradient);
 }
 
-.underlineText {
+.underline {
   position: relative;
   display: inline-block;
   width: fit-content;
 }
 
-.underlineText::after {
+.underline::after {
   content: "";
   position: absolute;
   left: 50%;

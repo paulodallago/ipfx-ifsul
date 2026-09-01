@@ -8,12 +8,12 @@ const Hero = () => {
       <div className={styles.hero}>
         <img src={chess} alt="imagem ilustrativa" className={styles.mainImg} />
         <div className={styles.text}>
-          <h1 className={styles.title}>Clube IFSul Passo Fundo de Xadrez</h1>
+          <h1 className={styles.title}>
+            Clube de Xadrez do Instituto Federal de Passo Fundo
+          </h1>
           <p className={styles.description}>
-            Bem-vindo ao site do Xadrez IFSul! Aqui você encontrará informações
-            sobre o nosso clube de xadrez, incluindo notícias, eventos e
-            recursos para jogadores de todos os níveis. Junte-se a nós e explore
-            o mundo fascinante do xadrez!
+            Espaço de prática e estudo de xadrez. Encontros abertos à
+            comunidade! Venha fazer parte!
           </p>
         </div>
       </div>

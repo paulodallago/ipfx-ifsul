@@ -56,6 +56,7 @@ const GalleryCarousel = ({ content, openGallery }) => {
     <div className={styles.edition}>
       <div className={styles.text}>
         <h1>{content.name}</h1>
+        <p className={styles.date + " underline"}>{content.date}</p>
         <p>{content.description}</p>
       </div>
 

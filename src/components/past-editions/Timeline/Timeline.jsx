@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import { Timeline as PrimeTimeline } from "primereact/timeline";
 import styles from "./Timeline.module.css";
-import editionsContent from "../../../assets/json/editionsContent";
+import editionsContent from "../../../assets/json/eventsContent";
 import EditionCard from "../EditionCard/EditionCard";
 import IpfxGalleria from "../../common/IpfxGalleria/IpfxGalleria";
 import { useMatchMedia } from "@primereact/hooks";

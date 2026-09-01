@@ -31,11 +31,11 @@
 }
 
 .title {
-  color: var(--dk-green);
+  color: var(--font-white);
 }
 
 .description {
-  color: black;
+  color: rgb(0, 0, 0);
   font-size: var(--font-2);
   margin-top: 10px;
 }

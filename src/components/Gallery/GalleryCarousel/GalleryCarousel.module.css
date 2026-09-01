@@ -114,6 +114,10 @@
   right: 12px;
 }
 
+.date {
+  font-size: var(--font-2);
+}
+
 @media (max-width: 768px) {
   .galleryWrapper {
     width: 92vw;

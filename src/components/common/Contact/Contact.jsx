@@ -41,7 +41,7 @@ const Contact = () => {
             </div>
 
             <div className={styles.contactIntro}>
-              <h2 className="underlineText">Tem interesse em apoiar?</h2>
+              <h2 className="underline">Tem interesse em apoiar?</h2>
               <p>
                 Entre em contato conosco por meio de algum dos nossos meios de
                 contato.
@@ -49,7 +49,7 @@ const Contact = () => {
             </div>
 
             <div className={styles.contactText}>
-              <h2 className="underlineText">Fale Conosco</h2>
+              <h2 className="underline">Fale Conosco</h2>
 
               <div className={styles.contactInfo}>
                 {items.map((item, index) => {

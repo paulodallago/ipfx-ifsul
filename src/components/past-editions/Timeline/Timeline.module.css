@@ -169,13 +169,13 @@
 
   .timeline :global(.p-timeline-event-content) {
     flex: 1;
+    padding: 0 0 5vh 0;
   }
 
-  .timeline :global(.p-timeline-event-connector) {
-    width: 3px;
-    height: 100%;
-    background: var(--gold-gradient);
-    opacity: 0.9;
+  .timeline :global(.p-timeline-event-separator) {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
   }
 
   .marker {
@@ -183,11 +183,16 @@
     height: 56px;
   }
 
-  .timeline :global(.p-timeline-event-content) {
-    padding: 0 0 5vh 0;
-  }
-
   .timeline :global(.p-timeline-event-opposite) {
     padding-bottom: 4rem;
+  }
+
+  .timeline :global(.p-timeline-event-connector) {
+    position: relative;
+    background: var(--gold-gradient);
+    opacity: 0.9;
+    z-index: 0;
+    width: 3px;
+    height: 100%;
   }
 }

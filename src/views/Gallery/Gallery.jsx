@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Gallery.module.css";
-import editionsContent from "../../assets/json/editionsContent";
+import galleryContent from "../../assets/json/galleryContent";
 import IpfxGalleria from "../../components/common/IpfxGalleria/IpfxGalleria";
 import GalleryCarousel from "../../components/Gallery/GalleryCarousel/GalleryCarousel";
 import { Divider } from "primereact/divider";
@@ -28,9 +28,9 @@ const Editions = () => {
 
   return (
     <div className={styles.container}>
-      <GalleryCarousel content={editionsContent[0]} openGallery={openGallery} />
+      <GalleryCarousel content={galleryContent[0]} openGallery={openGallery} />
       <hr />
-      <GalleryCarousel content={editionsContent[1]} openGallery={openGallery} />
+      <GalleryCarousel content={galleryContent[0]} openGallery={openGallery} />
 
       <IpfxGalleria ctrl={galleryProps} />
     </div>
