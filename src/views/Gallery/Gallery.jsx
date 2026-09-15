@@ -28,13 +28,13 @@ const Editions = () => {
   return (
     <div className={styles.container}>
       {galleryContent.map((edition) => (
-        <div>
+        <div key={edition.name}>
           <GalleryCarousel
             key={edition.name}
             content={edition}
             openGallery={openGallery}
           />
-          <hr />
+          <hr className={styles.divider} />
         </div>
       ))}
 

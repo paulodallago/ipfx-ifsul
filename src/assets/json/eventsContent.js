@@ -1,14 +1,6 @@
 // @ts-nocheck
 
-const galleryInovadores = require.context(
-  "../../assets/img/editions/inovadores",
-  false,
-  /\.(png|jpe?g|svg)$/,
-);
-
-const galleryInovadoresKeys = galleryInovadores
-  .keys()
-  .map((key) => galleryInovadores(key));
+import { galleryArena5, galleryOscip1 } from "../../utils";
 
 const editionsContent = [
   {
@@ -16,8 +8,8 @@ const editionsContent = [
     name: "I Campeonato estudantil e universitário & I Campeonato aberto de Passo Fundo",
     date: "14 de março de 2026",
     participants: 48,
-    cover: galleryInovadoresKeys[0],
-    galleryInovadores,
+    cover: galleryOscip1[0],
+    gallery: galleryOscip1,
     modalities: [
       {
         name: "Absoluto",
@@ -62,6 +54,8 @@ const editionsContent = [
     name: "I Campeonato de Xadrez Rápido IPFX",
     date: "09 de maio de 2026",
     participants: NaN,
+    cover: galleryArena5[0],
+    gallery: galleryArena5,
     modalities: [
       {
         name: "Geral",
@@ -82,7 +76,6 @@ const editionsContent = [
     name: "II Campeonato estudantil e universitário & II Campeonato aberto de Passo Fundo",
     date: "16 de agosto de 2026",
     participants: 43,
-    galleryInovadores,
     modalities: [
       {
         name: "Absoluto",

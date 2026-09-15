@@ -1,5 +1,5 @@
-import news1 from "../../assets/img/editions/inovadores/1.jpg";
-import news2 from "../../assets/img/editions/inovadores/2.jpg";
+import news1 from "../../assets/img/editions/Oscip1/1.jpg";
+import news2 from "../../assets/img/editions/Oscip1/2.jpg";
 import chess from "../../assets/img/chess.png";
 
 //TODO: tudo

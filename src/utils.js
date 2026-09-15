@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const responsiveOptions = [
   {
     breakpoint: "1024px",
@@ -18,3 +19,21 @@ export const responsiveOptionsMain = [
     numScroll: 1,
   },
 ];
+
+export const importImgs = (r) => r.keys().map(r);
+
+export const galleryOscip1 = importImgs(
+  require.context("./assets/img/editions/Oscip1", false, /\.(png|jpe?g|svg)$/),
+);
+
+export const galleryArena5 = importImgs(
+  require.context("./assets/img/editions/Arena5", false, /\.(png|jpe?g|svg)$/),
+);
+
+export const galleryEncontros = importImgs(
+  require.context(
+    "./assets/img/editions/Encontros",
+    false,
+    /\.(png|jpe?g|svg)$/,
+  ),
+);

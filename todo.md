@@ -13,6 +13,7 @@ To do:
 - Organizar imagens
 - Procurar TODOs
 - Procurar NaNs
+- Ajeitar galleria no mobile
 
 ---
 

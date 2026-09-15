@@ -14,12 +14,7 @@ const Header = () => {
       icon: "pi pi-home",
       command: () => navigate("/"),
     },
-    {
-      key: "gallery",
-      label: "Galeria",
-      icon: "pi pi-images",
-      command: () => navigate("/galeria"),
-    },
+
     {
       key: "timeline",
       label: "Eventos realizados",
@@ -37,6 +32,12 @@ const Header = () => {
       label: "Notícias",
       icon: "pi pi-bell",
       command: () => navigate("/noticias"),
+    },
+    {
+      key: "gallery",
+      label: "Galeria",
+      icon: "pi pi-images",
+      command: () => navigate("/galeria"),
     },
     {
       key: "about",

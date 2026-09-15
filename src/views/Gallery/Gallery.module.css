@@ -4,3 +4,9 @@
   background: var(--dark-gradient);
   box-shadow: var(--shadow-1);
 }
+
+.divider {
+  background: #ffffff3a;
+  width: 90%;
+  height: 2px;
+}
