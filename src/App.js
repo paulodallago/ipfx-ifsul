@@ -11,6 +11,8 @@ import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import Gallery from "./views/Gallery/Gallery";
 import About from "./views/About/About";
 import PastEditions from "./views/PastEditions/PastEditions";
+import Links from "./views/Links/Links";
+import News from "./views/News/News";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="/galeria" element={<Gallery />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/timeline" element={<PastEditions />} />
+          <Route path="/links" element={<Links />} />
+          <Route path="/noticias" element={<News />} />
         </Routes>
         <Footer />
       </HashRouter>

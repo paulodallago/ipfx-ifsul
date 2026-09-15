@@ -1,65 +1,53 @@
 // @ts-nocheck
-import React from "react";
-import { Tooltip } from "primereact/tooltip";
+import React, { useState } from "react";
 import styles from "./EditionCard.module.css";
 
-const ChampionItem = ({ champion, tooltipTargetClass }) => {
-  const hasTeam = champion.team?.trim();
-  const hasPlayersProp = Array.isArray(champion.players);
-  const hasPlayers = hasPlayersProp && champion.players.length > 0;
+const ModalityItem = ({ name, podium }) => {
+  const hasTeam = podium[0]?.player?.trim(); //??
 
-  if (!hasTeam && !hasPlayers) {
+  if (!hasTeam) {
     return (
       <li className={styles.championItem}>
-        <span className={styles.modality}>{champion.modality}</span>
+        <span className={styles.modality}>{podium[0].modality}</span>
         <span className={styles.teamUnavailable}>Dados não registrados</span>
       </li>
     );
   }
 
-  let tooltipContent = null;
-
-  if (hasPlayersProp) {
-    tooltipContent = hasPlayers
-      ? champion.players.join("\n")
-      : "Participantes em breve";
-  }
-
   return (
-    <li className={styles.championItem}>
-      <span className={styles.modality}>{champion.modality}</span>
-
-      <span
-        className={`${styles.team} ${
-          tooltipContent ? tooltipTargetClass : ""
-        } ${!tooltipContent ? styles.teamPlain : ""}`}
-        {...(tooltipContent && {
-          "data-pr-tooltip": tooltipContent,
-          "data-pr-position": "top",
-          tabIndex: 0,
-        })}
-      >
-        {champion.team}
-      </span>
+    <li key={name}>
+      <h4>Categoria: {name}</h4>
+      {podium.map((player, index) => (
+        <div
+          className={styles.championItem}
+          style={{
+            borderLeft:
+              index === 0
+                ? "3px solid var(--gold)"
+                : index === 1
+                  ? "3px solid var(--silver)"
+                  : "3px solid var(--bronze)",
+          }}
+          key={index}
+        >
+          <span className={styles.modality}>{player.position}</span>
+          <span className={styles.team}>{player.player}</span>
+        </div>
+      ))}
     </li>
   );
 };
 
-const EditionCard = ({ edition, delta, onOpenGallery }) => {
+const EditionCard = ({ edition, onOpenGallery }) => {
   const gallery = [edition.cover, ...(edition.gallery ?? [])];
   const photoCount = new Set(gallery).size;
-
-  const tooltipTargetClass = `team-tooltip-${edition.edition}`;
+  const [expanded, setExpanded] = useState(false);
+  const visibleModalities = expanded
+    ? edition.modalities
+    : edition.modalities.slice(0, 1);
 
   return (
     <div className={`${styles.card} defaultLift`}>
-      <Tooltip
-        target={`.${tooltipTargetClass}`}
-        position="top"
-        showDelay={150}
-        hideDelay={100}
-      />
-
       <header className={styles.cardHeader}>
         <div>
           <span className={styles.editionTag}>Edição {edition.edition}</span>
@@ -78,13 +66,6 @@ const EditionCard = ({ edition, delta, onOpenGallery }) => {
           </span>
 
           <span className={styles.participantsLabel}>participantes</span>
-
-          {delta != null && (
-            <span className={styles.growth}>
-              <i className="pi pi-arrow-up" />
-              {delta}%
-            </span>
-          )}
         </div>
       </header>
 
@@ -115,13 +96,23 @@ const EditionCard = ({ edition, delta, onOpenGallery }) => {
         </h4>
 
         <ul className={styles.championsList}>
-          {edition.champions.map((champion) => (
-            <ChampionItem
-              key={champion.modality}
-              champion={champion}
-              tooltipTargetClass={tooltipTargetClass}
+          {visibleModalities.map((modality) => (
+            <ModalityItem
+              key={modality.name}
+              name={modality.name}
+              podium={modality.podium}
             />
           ))}
+
+          {edition.modalities.length > 1 && (
+            <button
+              type="button"
+              className={styles.seeMoreButton}
+              onClick={() => setExpanded((prev) => !prev)}
+            >
+              {expanded ? "Ver menos" : "Ver mais"}
+            </button>
+          )}
         </ul>
       </section>
     </div>

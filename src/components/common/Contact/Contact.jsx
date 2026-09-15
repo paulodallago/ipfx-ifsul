@@ -12,7 +12,7 @@ const Contact = () => {
     {
       icon: "pi pi-youtube",
       text: "YouTube",
-      link: "https://www.youtube.com/@ipfxadrez",
+      link: "https://www.youtube.com/@ipfx-f5h",
     },
     {
       icon: "pi pi-lichess",
@@ -54,11 +54,13 @@ const Contact = () => {
               <div className={styles.contactInfo}>
                 {items.map((item, index) => {
                   return (
-                    <p key={index}>
-                      <i
-                        className={"pi " + item.icon + " defaultHover-2"}
-                        onClick={() => window.open(item.link, "_blank")}
-                      />
+                    <p
+                      key={index}
+                      onClick={() => window.open(item.link, "_blank")}
+                      style={{ cursor: "pointer" }}
+                      className={"defaultHover"}
+                    >
+                      <i className={item.icon} />
                       {item.text}
                     </p>
                   );

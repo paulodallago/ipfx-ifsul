@@ -27,6 +27,18 @@ const Header = () => {
       command: () => navigate("/timeline"),
     },
     {
+      key: "links",
+      label: "Links úteis",
+      icon: "pi pi-link",
+      command: () => navigate("/links"),
+    },
+    {
+      key: "news",
+      label: "Notícias",
+      icon: "pi pi-bell",
+      command: () => navigate("/noticias"),
+    },
+    {
       key: "about",
       label: "Sobre nós",
       icon: "pi pi-info-circle",

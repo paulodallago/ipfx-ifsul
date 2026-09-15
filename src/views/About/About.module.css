@@ -15,6 +15,15 @@
   text-align: justify;
 }
 
+.center {
+  text-align: center;
+  font-weight: 600;
+}
+
+.text p {
+  text-indent: 2rem;
+}
+
 @media (max-width: 768px) {
   .content {
     width: 80vw;

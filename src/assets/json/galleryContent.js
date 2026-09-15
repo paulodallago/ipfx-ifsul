@@ -1,35 +1,40 @@
-import inovadores1 from "../../assets/img/editions/inovadores/1.jpg";
-import inovadores2 from "../../assets/img/editions/inovadores/2.jpg";
-import inovadores3 from "../../assets/img/editions/inovadores/3.jpg";
-import inovadores4 from "../../assets/img/editions/inovadores/4.jpg";
-import inovadores5 from "../../assets/img/editions/inovadores/5.jpg";
-import inovadores6 from "../../assets/img/editions/inovadores/6.jpg";
-import inovadores7 from "../../assets/img/editions/inovadores/7.jpg";
-import inovadores8 from "../../assets/img/editions/inovadores/8.jpg";
-import inovadores9 from "../../assets/img/editions/inovadores/9.jpg";
-import inovadores10 from "../../assets/img/editions/inovadores/10.jpg";
+// @ts-nocheck
+const galleryInovadores = require.context(
+  "../../assets/img/editions/inovadores",
+  false,
+  /\.(png|jpe?g|svg)$/,
+);
+
+const galleryInovadoresKeys = galleryInovadores
+  .keys()
+  .map((key) => galleryInovadores(key));
+
+//name, description, date, galery
 
 const galleryContent = [
   {
-    edition: "I",
-    name: "Campeonato Inovadores do Xadrez no IFSUL",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Encontros semanais",
+    description: "pegar do drive",
+    date: "xx de xxxx de xxxx",
+    gallery: galleryInovadoresKeys,
+  },
+  {
+    name: "I Campeonato estudantil e universitário & I Campeonato aberto de Passo Fundo",
+    description: "Essa aqui tá com as imagens certas",
     date: "14 de março de 2026",
-    participants: 23,
-    cover: "../../assets/img/editions/inovadores/1.jpg",
-    gallery: [
-      inovadores1,
-      inovadores2,
-      inovadores3,
-      inovadores4,
-      inovadores5,
-      inovadores6,
-      inovadores7,
-      inovadores8,
-      inovadores9,
-      inovadores10,
-    ],
+    gallery: galleryInovadoresKeys,
+  },
+  {
+    name: "I Campeonato de Xadrez Rápido IPFX",
+    description: "Essa aqui vai usar as images na pasta 5° arena games",
+    date: "09 de maio de 2026",
+    gallery: galleryInovadoresKeys,
+  },
+  {
+    name: "II Campeonato estudantil e universitário & II Campeonato aberto de Passo Fundo",
+    description: "Essa aqui tem q ver",
+    date: "16 de agosto de 2026",
+    gallery: galleryInovadoresKeys,
   },
 ];
 

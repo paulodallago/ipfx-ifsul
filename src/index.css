@@ -2,8 +2,11 @@
   --green-1: #1f2a24;
   --green-2: #226441;
   --green-3: #b7cfbd;
-  --gold: #d4af37;
+  --gold: #ffc400;
   --gold-1: #fce69f;
+
+  --silver: #bababa;
+  --bronze: #cc922d;
 
   --white-1: #f9fafb; /* contato */
   --white-2: #ededed; /* realizacao */
@@ -87,7 +90,7 @@ body {
 }
 
 .defaultHover:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .defaultHover-2 {
@@ -95,15 +98,19 @@ body {
 }
 
 .defaultHover-2:hover {
+  transform: scale(1.1);
+}
+
+.defaultHover-3 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.defaultHover-3:hover {
   transform: scale(1.2);
 }
 
 .simpleHover:hover {
   cursor: pointer;
-}
-
-.defaultHover-2 {
-  transition: transform 0.2s ease-in-out;
 }
 
 hr {

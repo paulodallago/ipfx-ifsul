@@ -13,17 +13,6 @@ const Timeline = () => {
     0,
   );
 
-  const firstParticipants = editionsContent[0]?.participants ?? 0;
-  const lastParticipants =
-    editionsContent[editionsContent.length - 1]?.participants ?? 0;
-
-  const growth =
-    firstParticipants > 0
-      ? Math.round(
-          ((lastParticipants - firstParticipants) / firstParticipants) * 100,
-        )
-      : 0;
-
   const galleriaRef = useRef(null);
   const [activeEdition, setActiveEdition] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -42,21 +31,6 @@ const Timeline = () => {
     setTimeout(() => galleriaRef.current?.show(), 0);
   };
 
-  const events = editionsContent.map((edition, index) => {
-    const previous = editionsContent[index - 1];
-
-    return {
-      edition,
-      delta: previous
-        ? Math.round(
-            ((edition.participants - previous.participants) /
-              previous.participants) *
-              100,
-          )
-        : null,
-    };
-  });
-
   const marker = (item) => (
     <div className={styles.marker}>
       <span className={styles.markerInner}>{item.edition.edition}</span>
@@ -66,7 +40,6 @@ const Timeline = () => {
   const content = (item) => (
     <EditionCard
       edition={item.edition}
-      delta={item.delta}
       onOpenGallery={openGallery}
       className={styles.editionCard}
     />
@@ -77,7 +50,7 @@ const Timeline = () => {
   return (
     <section className={styles.section}>
       <PrimeTimeline
-        value={events}
+        value={editionsContent.map((edition) => ({ edition }))}
         align={isMobile ? "left" : "down"}
         className={styles.timeline}
         marker={marker}
@@ -88,7 +61,7 @@ const Timeline = () => {
       <div className={styles.statsStrip}>
         <div className={styles.stat}>
           <span className={styles.statValue}>{editionsContent.length}</span>
-          <span className={styles.statLabel}>edições realizadas</span>
+          <span className={styles.statLabel}>eventos realizados</span>
         </div>
 
         <span className={styles.statDivider} />
@@ -96,13 +69,6 @@ const Timeline = () => {
         <div className={styles.stat}>
           <span className={styles.statValue}>{totalParticipants}+</span>
           <span className={styles.statLabel}>participantes ao total</span>
-        </div>
-
-        <span className={styles.statDivider} />
-
-        <div className={styles.stat}>
-          <span className={styles.statValue}>+{growth}%</span>
-          <span className={styles.statLabel}>de crescimento</span>
         </div>
       </div>
 
