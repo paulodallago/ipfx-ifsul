@@ -2,13 +2,13 @@
 import React, { useRef, useState } from "react";
 import { Timeline as PrimeTimeline } from "primereact/timeline";
 import styles from "./Timeline.module.css";
-import editionsContent from "../../../assets/json/eventsContent";
+import eventsContent from "../../../assets/json/eventsContent";
 import EditionCard from "../EditionCard/EditionCard";
 import IpfxGalleria from "../../common/IpfxGalleria/IpfxGalleria";
 import { useMatchMedia } from "@primereact/hooks";
 
 const Timeline = () => {
-  const totalParticipants = editionsContent.reduce(
+  const totalParticipants = eventsContent.reduce(
     (acc, ed) => acc + ed.participants,
     0,
   );
@@ -50,7 +50,7 @@ const Timeline = () => {
   return (
     <section className={styles.section}>
       <PrimeTimeline
-        value={editionsContent.map((edition) => ({ edition }))}
+        value={eventsContent.map((edition) => ({ edition }))}
         align={isMobile ? "left" : "down"}
         className={styles.timeline}
         marker={marker}
@@ -60,7 +60,7 @@ const Timeline = () => {
 
       <div className={styles.statsStrip}>
         <div className={styles.stat}>
-          <span className={styles.statValue}>{editionsContent.length}</span>
+          <span className={styles.statValue}>{eventsContent.length}</span>
           <span className={styles.statLabel}>eventos realizados</span>
         </div>
 

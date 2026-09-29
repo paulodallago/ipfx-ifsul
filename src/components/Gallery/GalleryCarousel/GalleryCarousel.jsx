@@ -2,6 +2,61 @@
 import styles from "./GalleryCarousel.module.css";
 import React, { useEffect, useRef, useState } from "react";
 
+const LazyGalleryImage = ({ src, alt, onClick, className }) => {
+  const imgRef = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const node = imgRef.current;
+    if (!node) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+
+        if (entry?.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      {
+        root: null,
+        rootMargin: "200px 0px",
+        threshold: 0.01,
+      },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <img
+      ref={imgRef}
+      src={shouldLoad ? src : undefined}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      className={className}
+      onClick={onClick}
+      style={
+        shouldLoad
+          ? undefined
+          : {
+              background: "rgba(255, 255, 255, 0.08)",
+              minWidth: "140px",
+            }
+      }
+    />
+  );
+};
+
 const GalleryCarousel = ({ content, openGallery }) => {
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -30,21 +85,10 @@ const GalleryCarousel = ({ content, openGallery }) => {
     const gallery = galleryRef.current;
     if (!gallery) return;
 
-    const images = gallery.querySelectorAll("img");
-
-    Promise.all(
-      [...images].map((img) =>
-        img.complete
-          ? Promise.resolve()
-          : new Promise((resolve) => {
-              img.onload = resolve;
-              img.onerror = resolve;
-            }),
-      ),
-    ).then(updateScrollState);
-
     gallery.addEventListener("scroll", updateScrollState);
     window.addEventListener("resize", updateScrollState);
+
+    updateScrollState();
 
     return () => {
       gallery.removeEventListener("scroll", updateScrollState);
@@ -56,7 +100,9 @@ const GalleryCarousel = ({ content, openGallery }) => {
     <div className={styles.edition}>
       <div className={styles.text}>
         <h1>{content.name}</h1>
-        <p className={styles.date + " underline"}>{content.date}</p>
+        {content.date !== null ? (
+          <p className={styles.date + " underline"}>{content.date}</p>
+        ) : null}
         <p>{content.description}</p>
       </div>
 
@@ -76,7 +122,7 @@ const GalleryCarousel = ({ content, openGallery }) => {
 
         <div ref={galleryRef} className={styles.gallery}>
           {content.gallery.map((img, index) => (
-            <img
+            <LazyGalleryImage
               key={index}
               src={img}
               alt=""

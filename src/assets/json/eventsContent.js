@@ -1,10 +1,24 @@
 // @ts-nocheck
 
-import { galleryArena5, galleryOscip1 } from "../../utils";
+import {
+  galleryArena4,
+  galleryArena5,
+  galleryOscip1,
+  galleryOscip2,
+} from "../../utils";
 
-const editionsContent = [
+const eventsContent = [
   {
     edition: "I",
+    name: "IV Arena Games",
+    date: "11 de outubro de 2025",
+    participants: NaN,
+    cover: galleryArena4[0],
+    gallery: galleryArena4,
+    modalities: null, //TODO
+  },
+  {
+    edition: "II",
     name: "I Campeonato estudantil e universitário & I Campeonato aberto de Passo Fundo",
     date: "14 de março de 2026",
     participants: 48,
@@ -49,8 +63,7 @@ const editionsContent = [
     ],
   },
   {
-    //TODO: adicionar aqui fotos da arena games
-    edition: "II",
+    edition: "III",
     name: "I Campeonato de Xadrez Rápido IPFX",
     date: "09 de maio de 2026",
     participants: NaN,
@@ -71,11 +84,12 @@ const editionsContent = [
     ],
   },
   {
-    //TODO: adicionar aqui fotos (ver quais)
-    edition: "III",
+    edition: "IV",
     name: "II Campeonato estudantil e universitário & II Campeonato aberto de Passo Fundo",
     date: "16 de agosto de 2026",
     participants: 43,
+    cover: galleryOscip2[0],
+    gallery: galleryOscip2,
     modalities: [
       {
         name: "Absoluto",
@@ -173,4 +187,4 @@ const editionsContent = [
   },
 ];
 
-export default editionsContent;
+export default eventsContent;

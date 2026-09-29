@@ -42,9 +42,12 @@ const EditionCard = ({ edition, onOpenGallery }) => {
   const gallery = [edition.cover, ...(edition.gallery ?? [])];
   const photoCount = new Set(gallery).size;
   const [expanded, setExpanded] = useState(false);
-  const visibleModalities = expanded
-    ? edition.modalities
-    : edition.modalities.slice(0, 1);
+
+  const visibleModalities = edition.modalities
+    ? expanded
+      ? edition.modalities
+      : edition.modalities.slice(0, 1)
+    : null;
 
   return (
     <div className={`${styles.card} defaultLift`}>
@@ -89,22 +92,22 @@ const EditionCard = ({ edition, onOpenGallery }) => {
         </button>
       </section>
 
-      <section className={styles.championsBlock}>
-        <h4 className={styles.championsTitle}>
-          <i className="pi pi-trophy" />
-          Campeões
-        </h4>
+      {visibleModalities ? (
+        <section className={styles.championsBlock}>
+          <h4 className={styles.championsTitle}>
+            <i className="pi pi-trophy" />
+            Campeões
+          </h4>
 
-        <ul className={styles.championsList}>
-          {visibleModalities.map((modality) => (
-            <ModalityItem
-              key={modality.name}
-              name={modality.name}
-              podium={modality.podium}
-            />
-          ))}
+          <ul className={styles.championsList}>
+            {visibleModalities.map((modality) => (
+              <ModalityItem
+                key={modality.name}
+                name={modality.name}
+                podium={modality.podium}
+              />
+            ))}
 
-          {edition.modalities.length > 1 && (
             <button
               type="button"
               className={styles.seeMoreButton}
@@ -112,9 +115,9 @@ const EditionCard = ({ edition, onOpenGallery }) => {
             >
               {expanded ? "Ver menos" : "Ver mais"}
             </button>
-          )}
-        </ul>
-      </section>
+          </ul>
+        </section>
+      ) : null}
     </div>
   );
 };

@@ -26,6 +26,14 @@ export const galleryOscip1 = importImgs(
   require.context("./assets/img/editions/Oscip1", false, /\.(png|jpe?g|svg)$/),
 );
 
+export const galleryOscip2 = importImgs(
+  require.context("./assets/img/editions/Oscip2", false, /\.(png|jpe?g|svg)$/),
+);
+
+export const galleryArena4 = importImgs(
+  require.context("./assets/img/editions/Arena4", false, /\.(png|jpe?g|svg)$/),
+);
+
 export const galleryArena5 = importImgs(
   require.context("./assets/img/editions/Arena5", false, /\.(png|jpe?g|svg)$/),
 );
