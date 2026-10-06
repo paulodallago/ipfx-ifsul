@@ -66,12 +66,13 @@
 
 .body {
   height: 20vh;
-  padding: 0 0 1rem 1rem;
+  padding: 1rem;
 }
 
 .title {
   font-size: 1.05rem;
   margin: 0 0 6px;
+  color: black;
 }
 
 .date {
@@ -113,6 +114,15 @@
 }
 
 @media (max-width: 768px) {
+  .card {
+    width: 80vw;
+  }
+
+  .media,
+  .body {
+    height: auto;
+  }
+
   .mediaImg {
     width: 100%;
   }

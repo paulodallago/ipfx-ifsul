@@ -152,7 +152,6 @@
 
 @media (max-width: 768px) {
   .section {
-    background: var(--black-1);
     box-shadow: var(--shadow-1);
   }
 
