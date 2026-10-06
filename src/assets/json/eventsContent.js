@@ -12,7 +12,7 @@ const eventsContent = [
     edition: "I",
     name: "IV Arena Games",
     date: "11 de outubro de 2025",
-    participants: NaN,
+    participants: 0,
     cover: galleryArena4[0],
     gallery: galleryArena4,
     modalities: null, //TODO
@@ -66,7 +66,7 @@ const eventsContent = [
     edition: "III",
     name: "I Campeonato de Xadrez Rápido IPFX",
     date: "09 de maio de 2026",
-    participants: NaN,
+    participants: 0,
     cover: galleryArena5[0],
     gallery: galleryArena5,
     modalities: [

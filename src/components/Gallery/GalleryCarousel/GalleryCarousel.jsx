@@ -127,7 +127,7 @@ const GalleryCarousel = ({ content, openGallery }) => {
               src={img}
               alt=""
               className={styles.image}
-              onClick={() => openGallery(content, index + 1)}
+              onClick={() => openGallery(content, index)}
             />
           ))}
         </div>

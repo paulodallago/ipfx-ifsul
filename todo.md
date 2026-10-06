@@ -1,13 +1,20 @@
 Requisitos:
 
-- cadê as fotos do II campeonato, 16/08/26?
+- qtd de participantes
+  - IV arena games
+  - I Campeonato de Xadrez Rápido IPFX
+
+- ganhador
+  - IV arena games
+
+- texto
+  - texto promovendo os encontros semanais
+  - textos dos eventos
 
 To do:
 
-- Adicionar conteúdo
-- Ver tabela de resultados
-- Adicionar conteúdo da página de notícias
-- Consertar galeria
+- fade em baixo no dialog
+- Consertar galeria (carrossel)
 - Remover @ts-nocheck
 - Remover docx e lixo no projeto
 - Organizar imagens

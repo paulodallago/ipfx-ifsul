@@ -1,8 +1,9 @@
 .container {
-  background: var(--black-1);
+  background-image: url("../../../assets/img/bkg2.jpg");
+  background-size: repeat;
   height: 100%;
   padding-top: calc(var(--header-height) + 2vh);
-  padding-bottom: 2vh;
+  padding-bottom: 5vh;
 }
 
 .hero {

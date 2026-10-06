@@ -3,6 +3,8 @@
   padding-top: var(--header-height);
   background: var(--dark-gradient);
   box-shadow: var(--shadow-1);
+  background-image: url("../../assets/img/bkg2.jpg");
+  background-size: repeat;
 }
 
 .divider {

@@ -63,13 +63,15 @@ const EditionCard = ({ edition, onOpenGallery }) => {
           </span>
         </div>
 
-        <div className={styles.participantsBadge}>
-          <span className={styles.participantsNumber}>
-            {edition.participants}
-          </span>
+        {edition.participants > 0 ? (
+          <div className={styles.participantsBadge}>
+            <span className={styles.participantsNumber}>
+              {edition.participants}
+            </span>
 
-          <span className={styles.participantsLabel}>participantes</span>
-        </div>
+            <span className={styles.participantsLabel}>participantes</span>
+          </div>
+        ) : null}
       </header>
 
       <section>

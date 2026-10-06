@@ -1,0 +1,18 @@
+.container {
+  width: 100vw;
+  height: 400px;
+  background-image: url("../../../assets/img/encontros.jpeg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-1);
+  background-position: center;
+}
+
+.text {
+  text-align: center;
+}
+
+.list {
+  text-align: left;
+}

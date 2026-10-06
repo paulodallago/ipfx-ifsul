@@ -1,16 +1,17 @@
 .galleriaItem {
   display: block;
-  max-width: 92vw;
+  max-width: 80vw;
   max-height: 80vh;
   object-fit: contain;
 }
 
 .galleriaThumb {
   display: block;
-  width: 90px;
+  max-width: 90px;
   height: 60px;
   object-fit: cover;
   border-radius: 4px;
+  justify-content: center;
 }
 
 .galleriaCaption {

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./PastEditions.module.css";
-import Timeline from "../../components/past-editions/Timeline/Timeline";
+import Timeline from "../../components/PastEditions/Timeline/Timeline";
 
 const PastEditions = () => {
   return (

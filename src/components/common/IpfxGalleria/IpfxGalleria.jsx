@@ -1,14 +1,27 @@
 // @ts-nocheck
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import styles from "./IpfxGalleria.module.css";
 import { Galleria } from "primereact/galleria";
 
 const IpfxGalleria = (props) => {
   const buildImages = (ed) => {
-    const all = [ed.cover, ...(ed.gallery || [])];
-    const unique = Array.from(new Set(all));
-    return unique.map((src, i) => ({
+    if (!ed) return [];
+
+    const gallery = Array.isArray(ed.gallery) ? ed.gallery.filter(Boolean) : [];
+    const images = [];
+
+    if (ed.cover && ed.cover !== gallery[0]) {
+      images.push(ed.cover);
+    }
+
+    gallery.forEach((src) => {
+      if (src && !images.includes(src)) {
+        images.push(src);
+      }
+    });
+
+    return images.map((src, i) => ({
       itemImageSrc: src,
       thumbnailImageSrc: src,
       alt: `${ed.name} - foto ${i + 1}`,
