@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ipfx-ifsul/static/css/main.52c048ee.css",
+    "main.css": "/ipfx-ifsul/static/css/main.0c805578.css",
     "main.js": "/ipfx-ifsul/static/js/main.7aead556.js",
     "static/media/IMG_20260816_140612471_MFNR.jpg": "/ipfx-ifsul/static/media/IMG_20260816_140612471_MFNR.0f73e7902cbb54d34e7b.jpg",
     "static/media/02.jpg": "/ipfx-ifsul/static/media/02.f61d25f22d42a2cc9107.jpg",
@@ -101,11 +101,11 @@
     "static/media/logo.svg": "/ipfx-ifsul/static/media/logo.cbb0d33d03087eedf5fe5e4ac93e3cd5.svg",
     "static/media/lichess.svg": "/ipfx-ifsul/static/media/lichess.38c7f1b215663e883666.svg",
     "index.html": "/ipfx-ifsul/index.html",
-    "main.52c048ee.css.map": "/ipfx-ifsul/static/css/main.52c048ee.css.map",
+    "main.0c805578.css.map": "/ipfx-ifsul/static/css/main.0c805578.css.map",
     "main.7aead556.js.map": "/ipfx-ifsul/static/js/main.7aead556.js.map"
   },
   "entrypoints": [
-    "static/css/main.52c048ee.css",
+    "static/css/main.0c805578.css",
     "static/js/main.7aead556.js"
   ]
 }
