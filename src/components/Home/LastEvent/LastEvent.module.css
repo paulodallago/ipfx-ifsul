@@ -1,0 +1,14 @@
+.container {
+  padding: 5vh 0;
+}
+
+.container h1 {
+  font-size: x-large;
+  font-weight: normal;
+}
+
+.container h2 {
+  text-align: center;
+  font-size: xx-large;
+  margin: 0;
+}
