@@ -26,7 +26,7 @@
 }
 
 .galleryWrapper::before {
-  left: 0;
+  left: 0px;
   background: linear-gradient(to right, var(--black-1), transparent);
 }
 
@@ -116,6 +116,12 @@
 
 .date {
   font-size: var(--font-2);
+}
+
+.description {
+  max-width: 70vw;
+  margin: 0 auto;
+  text-align: center;
 }
 
 @media (max-width: 768px) {

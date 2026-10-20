@@ -8,10 +8,10 @@ import IpfxGalleria from "../../common/IpfxGalleria/IpfxGalleria";
 import { useMatchMedia } from "@primereact/hooks";
 
 const Timeline = () => {
-  const totalParticipants = eventsContent.reduce(
-    (acc, ed) => acc + ed.participants,
-    0,
-  );
+  // const totalParticipants = eventsContent.reduce(
+  //   (acc, ed) => acc + ed.participants,
+  //   0,
+  // );
 
   const galleriaRef = useRef(null);
   const [activeEdition, setActiveEdition] = useState(null);
@@ -64,12 +64,12 @@ const Timeline = () => {
           <span className={styles.statLabel}>eventos realizados</span>
         </div>
 
-        <span className={styles.statDivider} />
+        {/* <span className={styles.statDivider} />
 
         <div className={styles.stat}>
           <span className={styles.statValue}>{totalParticipants}+</span>
           <span className={styles.statLabel}>participantes ao total</span>
-        </div>
+        </div> */}
       </div>
 
       <IpfxGalleria ctrl={galleryProps} />

@@ -125,7 +125,7 @@
 /* scroll */
 
 .timeline::-webkit-scrollbar {
-  height: 12px;
+  height: 10px;
 }
 
 .timeline::-webkit-scrollbar-track {
@@ -145,7 +145,7 @@
 
 @supports (-moz-appearance: none) {
   .timeline {
-    scrollbar-width: auto;
+    scrollbar-width: 10px;
     scrollbar-color: var(--gold) var(--black-2);
   }
 }

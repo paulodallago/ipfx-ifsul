@@ -103,7 +103,7 @@ const GalleryCarousel = ({ content, openGallery }) => {
         {content.date !== null ? (
           <p className={styles.date + " underline"}>{content.date}</p>
         ) : null}
-        <p>{content.description}</p>
+        <div className={styles.description}>{content.description}</div>
       </div>
 
       <div
