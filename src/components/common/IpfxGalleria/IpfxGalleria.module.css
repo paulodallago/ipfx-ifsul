@@ -1,17 +1,92 @@
+.galleria {
+  background: rgba(5, 8, 10, 0.97);
+}
+
+:global(.p-galleria) {
+  background: rgba(5, 8, 10, 0.97);
+}
+
+:global(.p-galleria-content) {
+  background: rgba(5, 8, 10, 0.97);
+}
+
+:global(.p-galleria-item-container) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 8, 10, 0.97);
+}
+
+:global(.p-galleria-item-wrapper) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .galleriaItem {
   display: block;
-  max-width: 80vw;
+  width: auto;
+  max-width: min(80vw, 1200px);
   max-height: 80vh;
   object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+}
+
+:global(.p-galleria-close) {
+  position: absolute !important;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+:global(.p-galleria-close:hover) {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.03);
+}
+
+:global(.p-galleria-close .p-icon),
+:global(.p-galleria-close .pi) {
+  font-size: 1.1rem;
+}
+
+:global(.p-galleria-nav-button) {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+:global(.p-galleria-nav-button:hover) {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .galleriaThumb {
   display: block;
-  max-width: 90px;
+  width: 90px;
   height: 60px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
   justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+:global(.p-galleria-thumbnail-item.current) .galleriaThumb,
+:global(.p-galleria-thumbnail-item:hover) .galleriaThumb {
+  transform: scale(1.02);
 }
 
 .galleriaCaption {
@@ -20,4 +95,5 @@
   font-weight: 700;
   letter-spacing: 1px;
   padding: 0.5rem 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }

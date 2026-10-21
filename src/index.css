@@ -30,6 +30,7 @@
   --shadow-2: 0px 0px 5px 2px #0d0d0d68;
   --light-shadow-1: 0px 0px 11px 2px #ffffff44;
   --dark-shadow-1: 0px 0px 11px 2px #000000;
+  --dark-shadow-2: 0px 0px 11px 2px #00000091;
 
   --header-height: 10vh;
 
@@ -150,5 +151,8 @@ hr {
 }
 
 .pi-lichess {
-  content: url("./assets/img/lichess.svg");
+  width: 1rem;
+  height: 1rem;
+  scale: 1.2;
+  color: #000;
 }

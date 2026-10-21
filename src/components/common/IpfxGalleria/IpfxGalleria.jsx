@@ -5,6 +5,9 @@ import styles from "./IpfxGalleria.module.css";
 import { Galleria } from "primereact/galleria";
 
 const IpfxGalleria = (props) => {
+  const { ctrl } = props;
+  const isVisible = Boolean(ctrl?.activeEdition);
+
   const buildImages = (ed) => {
     if (!ed) return [];
 
@@ -29,6 +32,11 @@ const IpfxGalleria = (props) => {
     }));
   };
 
+  const closeGallery = () => {
+    ctrl?.setActiveEdition(null);
+    ctrl?.setActiveIndex(0);
+  };
+
   const captionTemplate = (item) => (
     <span className={styles.galleriaCaption}>{item.title}</span>
   );
@@ -38,6 +46,8 @@ const IpfxGalleria = (props) => {
       src={item.itemImageSrc}
       alt={item.alt}
       className={styles.galleriaItem}
+      loading="eager"
+      decoding="async"
     />
   );
 
@@ -46,25 +56,29 @@ const IpfxGalleria = (props) => {
       src={item.thumbnailImageSrc}
       alt={item.alt}
       className={styles.galleriaThumb}
+      loading="lazy"
+      decoding="async"
     />
   );
 
   return (
     <Galleria
-      ref={props.ctrl.galleriaRef}
-      value={
-        props.ctrl.activeEdition ? buildImages(props.ctrl.activeEdition) : []
-      }
-      activeIndex={props.ctrl.activeIndex}
-      onItemChange={(e) => props.ctrl.setActiveIndex(e.index)}
+      ref={ctrl?.galleriaRef}
+      visible={isVisible}
+      onHide={closeGallery}
+      value={ctrl?.activeEdition ? buildImages(ctrl.activeEdition) : []}
+      activeIndex={ctrl?.activeIndex ?? 0}
+      onItemChange={(e) => ctrl?.setActiveIndex(e.index)}
       numVisible={5}
       circular
       fullScreen
       showItemNavigators
       showThumbnails
+      closeIcon="pi pi-times"
       item={itemTemplate}
       thumbnail={thumbnailTemplate}
       caption={captionTemplate}
+      className={styles.galleria}
     />
   );
 };

@@ -16,3 +16,28 @@
 .list {
   text-align: left;
 }
+
+.icons > i {
+  margin: 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+.icons > i > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  color: rgb(255, 255, 255);
+}
+
+.icons {
+  display: inline-flex;
+}
