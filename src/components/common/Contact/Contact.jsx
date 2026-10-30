@@ -19,15 +19,16 @@ const Contact = () => {
       text: "Lichess",
       link: "https://lichess.org/team/ifsulpfchess",
     },
+
+    {
+      icon: "pi pi-envelope",
+      text: "clubeipfx@gmail.com",
+      link: "mailto:clubeipfx@gmail.com",
+    },
     {
       icon: "pi pi-map-marker",
       text: "Est. Perimetral Leste, 150. Passo Fundo - RS",
       link: "https://maps.app.goo.gl/MRCNfrXAJCsP1LvD9",
-    },
-    {
-      icon: "pi pi-phone",
-      text: "(54) 2024-0400",
-      link: "tel:+555420240400",
     },
   ];
 
@@ -36,10 +37,6 @@ const Contact = () => {
       <section className={styles.contact}>
         <div className={styles.container}>
           <div className={styles.contactContent}>
-            <div className={styles.contactImage + " simpleHover"}>
-              <img src={logo} alt="Entre em contato" />
-            </div>
-
             <div className={styles.contactIntro}>
               <h2 className="underline">Tem interesse em apoiar?</h2>
               <p>
@@ -54,11 +51,11 @@ const Contact = () => {
               <div className={styles.contactInfo}>
                 {items.map((item, index) => {
                   return (
-                    <p
+                    <div
                       key={index}
                       onClick={() => window.open(item.link, "_blank")}
                       style={{ cursor: "pointer" }}
-                      className={"defaultHover"}
+                      className={"defaultHover " + styles.itemGrid}
                     >
                       {item.icon === "pi pi-lichess" ? (
                         <i className={item.icon}>
@@ -81,8 +78,8 @@ const Contact = () => {
                         <i className={item.icon} />
                       )}
 
-                      {item.text}
-                    </p>
+                      <div>{item.text}</div>
+                    </div>
                   );
                 })}
               </div>

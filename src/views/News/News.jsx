@@ -70,11 +70,18 @@ const News = () => {
         >
           {selected && (
             <div className={styles.dialogContent}>
-              <img
-                src={selected.image}
-                alt={selected.title}
-                className={styles.dialogImage}
-              />
+              <div className={styles.media}>
+                <div
+                  className={styles.mediaBg}
+                  style={{ backgroundImage: `url(${selected.image})` }}
+                />
+                <img
+                  src={selected.image}
+                  alt={selected.title}
+                  className={styles.mediaImg}
+                />
+              </div>
+
               <p className={styles.dialogDate}>{selected.date}</p>
               <p className={styles.dialogText}>{selected.content}</p>
             </div>

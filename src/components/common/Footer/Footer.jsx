@@ -21,17 +21,10 @@ export default function Footer() {
                 >
                   <img src={logo_if} alt="Logo IFSul" />
                 </a>
-                <a
-                  href="https://inf.passofundo.ifsul.edu.br/src/home/index.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={logo_cc} alt="Logo CC" />
-                </a>
               </div>
             </div>
 
-            <hr className={styles.footerDivider} />
+            <div className={styles.footerDivider}></div>
 
             <div className={styles.footerSection}>
               <h2>Apoio</h2>

@@ -5,16 +5,15 @@ const About = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1>Sobre o projeto</h1>
+        <h1>Sobre o clube</h1>
         <div className={styles.text}>
           <p>
-            O clube de xadrez do IFSul, câmpus Passo Fundo, nasceu como um
-            projeto de ensino no ano de 2022, coordenado pelo professor Daniel
-            Delfini Ribeiro e contando com a participação do professor
-            substituto Emir da Rosa Caldeira Júnior como colaborador. Nessa
-            época, o clube realizou suas atividades de forma exclusivamente
-            online. Com a saída do professor Emir da instituição no final
-            daquele ano, o projeto encerrou temporariamente suas atividades.
+            O Clube de Xadrez do IFSul, câmpus Passo Fundo, surgiu em 2022 como
+            um projeto de ensino coordenado pelos professores Daniel Delfini
+            Ribeiro e Emir da Rosa Caldeira Júnior. Naquele período, as
+            atividades do clube ocorreram exclusivamente de forma on-line. Com o
+            encerramento do projeto, ao final daquele ano, os encontros virtuais
+            também chegaram ao fim.
           </p>
 
           <p>
@@ -36,9 +35,7 @@ const About = () => {
             presença de pessoas da comunidade externa ao IFSul, o que aumentou a
             participação e expandiu o alcance do clube junto à comunidade.
           </p>
-          <p className={styles.center}>
-            O ano de 2027 promete novidades! Junte-se ao IPFX!
-          </p>
+          <p className={styles.center}>Junte-se ao IPFX!</p>
         </div>
       </div>
     </div>

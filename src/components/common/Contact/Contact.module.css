@@ -1,28 +1,17 @@
 .contact {
-  padding: 4rem 0;
+  padding: 1rem 0;
   background: var(--white-1);
   color: #333;
 }
 
 .container {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
 }
 
 .contactContent {
   display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr;
-  gap: 2rem;
-}
-
-.contactImage {
-  margin: auto;
-}
-
-.contactImage img {
-  width: 60%;
-  max-width: 250px;
-  object-fit: contain;
+  grid-template-columns: 1fr 0.5fr;
 }
 
 .contactIntro {
@@ -41,16 +30,22 @@
   gap: 1rem;
 }
 
-.contactInfo p {
-  margin: 0.5rem 0;
+.itemGrid {
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  margin-bottom: 0.5rem;
+}
+
+.contactInfo {
+  margin: 0.5rem auto;
   color: #333;
   word-break: break-word;
+  max-width: 60vw;
 }
 
 .footerSocial {
   display: flex;
   gap: 1.5rem;
-  margin-top: 1rem;
 }
 
 .socialIcon {

@@ -6,6 +6,7 @@ import {
   galleryEncontros,
   galleryOscip1,
   galleryOscip2,
+  galleryPanambi,
 } from "../../utils";
 
 const galleryContent = [
@@ -38,9 +39,16 @@ const galleryContent = [
     gallery: galleryArena5,
   },
   {
+    name: "Aberto de Xadrez Unijuí Campus Panambi 2026",
+    description:
+      "O clube esteve presente no evento organizado pela Unijuí Campus Panambi, organizado pelo Clube de Xadrez da instituição",
+    date: "16 de maio de 2026",
+    gallery: galleryPanambi,
+  },
+  {
     name: "II Campeonato estudantil e universitário & II Campeonato aberto de Passo Fundo",
     description:
-      "Novamente em parceria com a OSCIP Inovadores do Xadrez Passo Fundo, o evento representou um marco fundamental na evolução do clube. Além do alto nível de disputas e de uma ampla premiação com troféus, o torneio reforçou nosso compromisso social com a arrecadação de alimentos para doação",
+      "Novamente em parceria com a OSCIP Inovadores do Xadrez Passo Fundo, o evento representou um marco fundamental na evolução do clube.",
     date: "16 de agosto de 2026",
     gallery: galleryOscip2,
   },

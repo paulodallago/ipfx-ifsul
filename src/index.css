@@ -2,8 +2,8 @@
   --green-1: #1f2a24;
   --green-2: #226441;
   --green-3: #b7cfbd;
-  --gold: #ffc400;
-  --gold-1: #fce69f;
+  --gold: #ffcc26;
+  --gold-1: #d8bc5f;
 
   --silver: #bababa;
   --bronze: #cc922d;
@@ -15,7 +15,7 @@
 
   --font-black: #0c0c0c;
   --font-white: #f4f4f4;
-
+  --font-muted: #666;
   --lime: #9ae157;
   --acqua: #34bdad;
 
@@ -23,8 +23,6 @@
   --bright-gradient: linear-gradient(135deg, var(--lime), var(--acqua));
   --green-gradient: linear-gradient(150deg, #355a46, #258a52);
   --dark-gradient: linear-gradient(0deg, var(--black-2), var(--black-1));
-  /* linear-gradient(90deg, #2c53ff, #9a275d) */
-  /* linear-gradient(90deg, #304293, #4a90e2) */
 
   --shadow-1: 0px 0px 11px 2px #0d0d0d97;
   --shadow-2: 0px 0px 5px 2px #0d0d0d68;
@@ -47,6 +45,7 @@ body {
   overflow-x: hidden;
   background: var(--black-1);
   color: var(--white-1);
+  width: 100vw;
 }
 
 .p-button {
@@ -153,6 +152,7 @@ hr {
 .pi-lichess {
   width: 1rem;
   height: 1rem;
-  scale: 1.2;
+  scale: 1.3;
   color: #000;
+  margin-left: 5px;
 }

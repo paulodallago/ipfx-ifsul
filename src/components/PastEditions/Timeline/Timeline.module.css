@@ -125,12 +125,13 @@
 /* scroll */
 
 .timeline::-webkit-scrollbar {
-  height: 10px;
+  height: 12px;
 }
 
 .timeline::-webkit-scrollbar-track {
   background: var(--black-2);
   border-radius: 999px;
+  margin: 100px;
 }
 
 .timeline::-webkit-scrollbar-thumb {

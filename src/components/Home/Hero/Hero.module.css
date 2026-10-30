@@ -15,7 +15,7 @@
       rgba(0, 0, 0, 0.2) 60%,
       rgba(0, 0, 0, 0.5) 100%
     ),
-    url("../../../assets/img/mainbg.jpg");
+    url("../../../assets/img/mainbg.jpeg");
 
   background-size: cover;
   background-position: right;
@@ -26,7 +26,6 @@
   display: flex;
   box-shadow: var(--dark-shadow-2);
   text-align: center;
-  font-size: 1.2rem;
 }
 
 .text {
@@ -35,13 +34,13 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  flex: 1;
   padding: 0 5vw;
 }
 
 .description {
-  font-size: var(--font-2);
   margin-top: 10px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-align: center;
   font-weight: 500;
 }
@@ -50,5 +49,7 @@
   .hero {
     flex-direction: column;
     height: fit-content;
+    width: 90vw;
+    min-height: 60vh;
   }
 }

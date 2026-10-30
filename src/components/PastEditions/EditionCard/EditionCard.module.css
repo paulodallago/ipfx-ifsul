@@ -62,11 +62,12 @@
 }
 
 .participantsLabel {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--font-white);
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 0.25rem;
+  font-weight: 600;
 }
 
 .growth {

@@ -38,6 +38,10 @@ export const galleryArena5 = importImgs(
   require.context("./assets/img/editions/Arena5", false, /\.(png|jpe?g|svg)$/),
 );
 
+export const galleryPanambi = importImgs(
+  require.context("./assets/img/editions/Panambi", false, /\.(png|jpe?g|svg)$/),
+);
+
 export const galleryEncontros = importImgs(
   require.context(
     "./assets/img/editions/Encontros",

@@ -22,6 +22,7 @@
 }
 
 .card {
+  color: var(--font-black);
   width: 50vw;
   margin: 0 auto;
   background: var(--surface-50, #fff);
@@ -65,25 +66,23 @@
 }
 
 .body {
-  height: 20vh;
   padding: 1rem;
 }
 
 .title {
   font-size: 1.05rem;
   margin: 0 0 6px;
-  color: black;
+  color: var(--font-black);
 }
 
 .date {
   font-size: 0.85rem;
-  color: var(--font-muted, #666);
+  color: var(--font-muted);
   margin-bottom: 8px;
 }
 
 .summary {
   margin: 0;
-  color: var(--font-black);
 }
 
 .dialog {
@@ -93,19 +92,20 @@
 .dialogContent {
   display: flex;
   flex-direction: column;
-  gap: 12px;
   position: relative;
 }
 
-.dialogImage {
+.dialogContent .media {
+  margin-top: 10px;
   width: 100%;
   max-height: 240px;
   object-fit: cover;
   border-radius: 6px;
+  box-shadow: var(--shadow-2);
 }
 
 .dialogDate {
-  color: var(--font-muted, #666);
+  color: var(--font-muted);
   font-size: 0.9rem;
 }
 
