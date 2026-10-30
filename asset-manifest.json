@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ipfx-ifsul/static/css/main.3226fc90.css",
+    "main.css": "/ipfx-ifsul/static/css/main.fa005300.css",
     "main.js": "/ipfx-ifsul/static/js/main.f67f23f9.js",
     "static/media/IMG_20260816_140612471_MFNR.jpg": "/ipfx-ifsul/static/media/IMG_20260816_140612471_MFNR.0f73e7902cbb54d34e7b.jpg",
     "static/media/02.jpg": "/ipfx-ifsul/static/media/02.f61d25f22d42a2cc9107.jpg",
@@ -104,11 +104,11 @@
     "static/media/logo_pf.png": "/ipfx-ifsul/static/media/logo_pf.828fbfc6187e18d232d6.png",
     "static/media/logo.svg": "/ipfx-ifsul/static/media/logo.cbb0d33d03087eedf5fe5e4ac93e3cd5.svg",
     "index.html": "/ipfx-ifsul/index.html",
-    "main.3226fc90.css.map": "/ipfx-ifsul/static/css/main.3226fc90.css.map",
+    "main.fa005300.css.map": "/ipfx-ifsul/static/css/main.fa005300.css.map",
     "main.f67f23f9.js.map": "/ipfx-ifsul/static/js/main.f67f23f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.3226fc90.css",
+    "static/css/main.fa005300.css",
     "static/js/main.f67f23f9.js"
   ]
 }
