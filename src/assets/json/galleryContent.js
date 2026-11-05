@@ -18,11 +18,26 @@ const galleryContent = [
     gallery: galleryEncontros,
   },
   {
-    name: "IV Arena Games",
+    name: "II Campeonato estudantil e universitário & II Campeonato aberto de Passo Fundo",
     description:
-      "A 4ª edição do evento de e-sports do instituto marcou a reabertura do clube, com a realização do nosso primeiro torneio oficial",
-    date: "11 de outubro de 2025",
-    gallery: galleryArena4,
+      "Novamente em parceria com a OSCIP Inovadores do Xadrez Passo Fundo, o evento representou um marco fundamental na evolução do clube.",
+    date: "16 de agosto de 2026",
+    gallery: galleryOscip2,
+  },
+  {
+    name: "Aberto de Xadrez Unijuí Campus Panambi 2026",
+    description:
+      "O clube esteve presente no evento organizado pela Unijuí Campus Panambi, organizado pelo Clube de Xadrez da instituição",
+    date: "16 de maio de 2026",
+    gallery: galleryPanambi,
+  },
+
+  {
+    name: "I Campeonato de Xadrez Rápido IPFX",
+    description:
+      "Realizado durante a 5ª edição da Arena Games IFSUL, o torneio foi disputado no sistema Suíço em 6 rodadas",
+    date: "09 de maio de 2026",
+    gallery: galleryArena5,
   },
   {
     name: "I Campeonato estudantil e universitário & I Campeonato aberto de Passo Fundo",
@@ -32,25 +47,11 @@ const galleryContent = [
     gallery: galleryOscip1,
   },
   {
-    name: "I Campeonato de Xadrez Rápido IPFX",
+    name: "IV Arena Games",
     description:
-      "Realizado durante a 5ª edição da Arena Games IFSUL, o torneio foi disputado no sistema Suíço em 6 rodadas",
-    date: "09 de maio de 2026",
-    gallery: galleryArena5,
-  },
-  {
-    name: "Aberto de Xadrez Unijuí Campus Panambi 2026",
-    description:
-      "O clube esteve presente no evento organizado pela Unijuí Campus Panambi, organizado pelo Clube de Xadrez da instituição",
-    date: "16 de maio de 2026",
-    gallery: galleryPanambi,
-  },
-  {
-    name: "II Campeonato estudantil e universitário & II Campeonato aberto de Passo Fundo",
-    description:
-      "Novamente em parceria com a OSCIP Inovadores do Xadrez Passo Fundo, o evento representou um marco fundamental na evolução do clube.",
-    date: "16 de agosto de 2026",
-    gallery: galleryOscip2,
+      "A 4ª edição do evento de e-sports do instituto marcou a reabertura do clube, com a realização do nosso primeiro torneio oficial",
+    date: "11 de outubro de 2025",
+    gallery: galleryArena4,
   },
 ];
 

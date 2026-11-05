@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../../assets/img/logo_cc.png";
 import styles from "./Contact.module.css";
 
 const Contact = () => {
@@ -19,7 +18,11 @@ const Contact = () => {
       text: "Lichess",
       link: "https://lichess.org/team/ifsulpfchess",
     },
-
+    {
+      icon: "pi pi-whatsapp",
+      text: "Whatsapp",
+      link: "https://chat.whatsapp.com/IlrADHR2Wio2qGTYxjrhl5",
+    },
     {
       icon: "pi pi-envelope",
       text: "clubeipfx@gmail.com",

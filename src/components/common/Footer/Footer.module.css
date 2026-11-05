@@ -85,7 +85,7 @@
 @media (max-width: 768px) {
   .supportLogos {
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .footerSupport {

@@ -15,7 +15,17 @@ const eventsContent = [
     participants: 0,
     cover: galleryArena4[0],
     gallery: galleryArena4,
-    modalities: null, //TODO
+    modalities: [
+      {
+        name: "Geral",
+        podium: [
+          { position: "1° Lugar", player: "Lucas Rogério" },
+          { position: "2° Lugar", player: "Luiz Eduardo Rissardo" },
+          { position: "3° Lugar", player: "Pedro Rossetto" },
+          { position: "4° Lugar", player: "Luiz Otávio Biulchi" },
+        ],
+      },
+    ],
   },
   {
     edition: "II",

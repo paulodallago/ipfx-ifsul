@@ -20,7 +20,12 @@ const Card = () => {
         </p>
         <div className={styles.icons}>
           <i
-            onClick={() => window.open("", "_blank")}
+            onClick={() =>
+              window.open(
+                "https://chat.whatsapp.com/IlrADHR2Wio2qGTYxjrhl5",
+                "_blank",
+              )
+            }
             style={{ cursor: "pointer" }}
             className={"defaultHover pi pi-whatsapp"}
           />
