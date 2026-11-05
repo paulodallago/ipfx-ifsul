@@ -12,7 +12,7 @@ const eventsContent = [
     edition: "I",
     name: "IV Arena Games",
     date: "11 de outubro de 2025",
-    participants: 0,
+    participants: 6,
     cover: galleryArena4[0],
     gallery: galleryArena4,
     modalities: [

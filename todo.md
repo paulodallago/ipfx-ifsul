@@ -1,8 +1,8 @@
-- A alimentação do site com as matérias, uma vez que a estrutura esteja pronta. É possível alimentemos com novas matérias sem necessariamente precisar saber sobre desenvolvimento web?
+- Conteúdo do site
+- tirar ver mais quando n tem mais
 
 To do:
 
-- fade em baixo no dialog
 - Consertar galeria (carrossel)
 - Remover @ts-nocheck
 - Remover docx e lixo no projeto
