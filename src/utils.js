@@ -49,3 +49,17 @@ export const galleryEncontros = importImgs(
     /\.(png|jpe?g|svg)$/,
   ),
 );
+
+export function FormatText(content) {
+  const paragraphs = content ? content.split("\n") : [];
+
+  return (
+    <div className="text-container">
+      {paragraphs.map((para, index) =>
+        para.trim() !== "" ? <p key={index}>{para}</p> : <br key={index} />,
+      )}
+    </div>
+  );
+}
+
+export const baseUrl = "http://localhost:1337/api/";

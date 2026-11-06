@@ -5,6 +5,8 @@
   "private": true,
   "dependencies": {
     "@primereact/hooks": "^11.0.0",
+    "axios": "^1.21.0",
+    "decap-cms-app": "^3.17.3",
     "eslint-config-react-app": "^7.0.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.7",

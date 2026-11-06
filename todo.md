@@ -1,10 +1,12 @@
 - Conteúdo do site
 - tirar ver mais quando n tem mais
+- 404?
+- strapi n inicia fora de dev
 
 To do:
 
 - Consertar galeria (carrossel)
-- Remover @ts-nocheck
+- Remover @ts-nocheckcd
 - Remover docx e lixo no projeto
 - Organizar imagens
 - Procurar TODOs

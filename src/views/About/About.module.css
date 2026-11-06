@@ -13,15 +13,12 @@
 
 .text {
   text-align: justify;
+  text-indent: 2rem;
 }
 
 .center {
   text-align: center;
   font-weight: 600;
-}
-
-.text p {
-  text-indent: 2rem;
 }
 
 @media (max-width: 768px) {
