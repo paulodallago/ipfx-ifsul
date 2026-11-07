@@ -50,7 +50,7 @@ export const galleryEncontros = importImgs(
   ),
 );
 
-export function FormatText(content) {
+export function formatText(content) {
   const paragraphs = content ? content.split("\n") : [];
 
   return (
@@ -62,4 +62,11 @@ export function FormatText(content) {
   );
 }
 
-export const baseUrl = "http://localhost:1337/api/";
+export const formatDate = (date) => {
+  const options = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  };
+  return new Date(date).toLocaleDateString("en-US", options);
+};

@@ -2,6 +2,13 @@
 - tirar ver mais quando n tem mais
 - 404?
 - strapi n inicia fora de dev
+- otimizar imagens? ver as thumbs
+
+"homepage": "https://paulodallago.github.io/ipfx-ifsul",
+
+iniciar em prod
+
+    npx serve build
 
 To do:
 

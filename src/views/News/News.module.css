@@ -109,10 +109,6 @@
   font-size: 0.9rem;
 }
 
-.dialogText {
-  white-space: pre-wrap;
-}
-
 @media (max-width: 768px) {
   .card {
     width: 80vw;

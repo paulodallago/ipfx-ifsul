@@ -1,24 +1,38 @@
-// @ts-nocheck
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Dialog } from "primereact/dialog";
-import newsContent from "../../assets/json/newsContent";
 import styles from "./News.module.css";
+import { Noticia } from "../../types";
+import {
+  getNoticias,
+  STRAPI_MEDIA_URL,
+  STRAPI_URL,
+} from "../../services/services";
+import { formatDate, formatText } from "../../utils.js";
 
 const News = () => {
   const [visible, setVisible] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<Noticia>();
 
-  const open = (item) => {
+  const [data, setData] = useState<Noticia[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const result = await getNoticias();
+      setData(result);
+    })();
+  }, []);
+
+  const open = (item: Noticia) => {
     setSelected(item);
     setVisible(true);
   };
 
   const close = () => {
     setVisible(false);
-    setSelected(null);
+    setSelected(undefined);
   };
 
-  const handleKey = (e, item) => {
+  const handleKey = (e: any, item: Noticia) => {
     if (e.key === "Enter" || e.key === " ") open(item);
   };
 
@@ -31,7 +45,7 @@ const News = () => {
         </div>
 
         <div className={styles.grid}>
-          {newsContent.map((item) => (
+          {data.map((item) => (
             <article
               key={item.id}
               role="button"
@@ -43,25 +57,27 @@ const News = () => {
               <div className={styles.media}>
                 <div
                   className={styles.mediaBg}
-                  style={{ backgroundImage: `url(${item.image})` }}
+                  style={{
+                    backgroundImage: `url(${STRAPI_MEDIA_URL + item?.imagem?.url})`,
+                  }}
                 />
                 <img
-                  src={item.image}
-                  alt={item.title}
+                  src={STRAPI_MEDIA_URL + item?.imagem?.url}
+                  alt={item?.titulo}
                   className={styles.mediaImg}
                 />
               </div>
               <div className={styles.body}>
-                <h3 className={styles.title}>{item.title}</h3>
-                <div className={styles.date}>{item.date}</div>
-                <p className={styles.summary}>{item.summary}</p>
+                <h3 className={styles.title}>{item?.titulo}</h3>
+                <div className={styles.date}>{formatDate(item?.data)}</div>
+                <p className={styles.summary}>{item?.sumario}</p>
               </div>
             </article>
           ))}
         </div>
 
         <Dialog
-          header={selected?.title}
+          header={selected?.titulo}
           visible={visible}
           className={styles.dialog}
           onHide={close}
@@ -73,17 +89,19 @@ const News = () => {
               <div className={styles.media}>
                 <div
                   className={styles.mediaBg}
-                  style={{ backgroundImage: `url(${selected.image})` }}
+                  style={{
+                    backgroundImage: `url(${STRAPI_MEDIA_URL + selected?.imagem?.url})`,
+                  }}
                 />
                 <img
-                  src={selected.image}
-                  alt={selected.title}
+                  src={STRAPI_MEDIA_URL + selected?.imagem?.url}
+                  alt={selected.titulo}
                   className={styles.mediaImg}
                 />
               </div>
 
-              <p className={styles.dialogDate}>{selected.date}</p>
-              <p className={styles.dialogText}>{selected.content}</p>
+              <p className={styles.dialogDate}>{formatDate(selected.data)}</p>
+              {formatText(selected.texto)}
             </div>
           )}
         </Dialog>

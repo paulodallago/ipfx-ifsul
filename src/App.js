@@ -15,10 +15,10 @@ import {
   useLocation,
 } from "react-router-dom";
 import Gallery from "./views/Gallery/Gallery";
-import About from "./views/About/About";
+import About from "./views/About/About.tsx";
 import PastEditions from "./views/PastEditions/PastEditions";
 import Links from "./views/Links/Links";
-import News from "./views/News/News";
+import News from "./views/News/News.tsx";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
