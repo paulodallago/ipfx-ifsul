@@ -1,8 +1,8 @@
 import React from "react";
-import Hero from "../../components/Home/Hero/Hero";
-import Contact from "../../components/common/Contact/Contact";
-import Card from "../../components/Home/Card/Card";
-import LastEvent from "../../components/Home/LastEvent/LastEvent";
+import Hero from "../../components/Home/Hero/Hero.tsx";
+import Contact from "../../components/common/Contact/Contact.tsx";
+import Card from "../../components/Home/Card/Card.tsx";
+import LastEvent from "../../components/Home/LastEvent/LastEvent.tsx";
 import styles from "./Home.module.css";
 
 const Home = () => {

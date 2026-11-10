@@ -17,7 +17,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px;
+  gap: 1rem;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -36,6 +36,7 @@
     transform 0.12s ease,
     box-shadow 0.12s ease;
   padding: 12px;
+  max-height: 50vh;
 }
 
 .card:hover {

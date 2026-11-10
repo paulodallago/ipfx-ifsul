@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import styles from "./About.module.css";
-import { formatText } from "../../utils.js";
-import { Sobre } from "../../types.ts";
-import { getSobre } from "../../services/services.js";
+import { Texto } from "../../services/types.ts";
+import pocketbase from "../../services/pocketbase.js";
+import parse from "html-react-parser";
 
 const About = () => {
-  const [data, setData] = useState<Sobre>();
+  const [data, setData] = useState<Texto>();
 
   useEffect(() => {
     (async () => {
-      setData(await getSobre());
+      setData(
+        await pocketbase
+          .collection("textos")
+          .getFirstListItem("identificador='sobre'"),
+      );
     })();
   }, []);
 
@@ -17,10 +21,7 @@ const About = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <h1>{data?.titulo}</h1>
-        <div className={styles.text}>
-          {formatText(data?.texto)}
-          <p className={styles.center}>{data?.rodape}</p>
-        </div>
+        <div className={styles.text}>{data ? parse(data.texto) : null}</div>
       </div>
     </div>
   );

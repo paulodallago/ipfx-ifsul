@@ -77,16 +77,31 @@
 .galleriaThumb {
   display: block;
   width: 90px;
+  max-width: 100%;
   height: 60px;
+  flex: 0 0 auto;
   object-fit: cover;
   border-radius: 6px;
-  justify-content: center;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
-:global(.p-galleria-thumbnail-item.current) .galleriaThumb,
+.galleria :global(.p-galleria-thumbnail-item) {
+  flex: 0 0 20% !important;
+  min-width: 0;
+}
+
+.galleria :global(.p-galleria-thumbnail-item-content) {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+:global(.p-galleria-thumbnail-item-current) .galleriaThumb {
+  opacity: 0.8;
+}
+
 :global(.p-galleria-thumbnail-item:hover) .galleriaThumb {
-  transform: scale(1.02);
+  opacity: 0.9;
 }
 
 .galleriaCaption {

@@ -6,7 +6,7 @@ import "primeicons/primeicons.css";
 import React, { useEffect } from "react";
 import Home from "./views/Home/Home";
 import Header from "./components/common/Header/Header";
-import Footer from "./components/common/Footer/Footer";
+import Footer from "./components/common/Footer/Footer.tsx";
 import {
   HashRouter,
   Navigate,
@@ -14,10 +14,10 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import Gallery from "./views/Gallery/Gallery";
+import Gallery from "./views/Gallery/Gallery.tsx";
 import About from "./views/About/About.tsx";
-import PastEditions from "./views/PastEditions/PastEditions";
-import Links from "./views/Links/Links";
+import Events from "./views/Events/Events";
+import Links from "./views/Links/Links.tsx";
 import News from "./views/News/News.tsx";
 
 const ScrollToTop = () => {
@@ -45,7 +45,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/galeria" element={<Gallery />} />
           <Route path="/sobre" element={<About />} />
-          <Route path="/timeline" element={<PastEditions />} />
+          <Route path="/timeline" element={<Events />} />
           <Route path="/links" element={<Links />} />
           <Route path="/noticias" element={<News />} />
         </Routes>

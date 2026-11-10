@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Dialog } from "primereact/dialog";
 import styles from "./News.module.css";
-import { Noticia } from "../../types";
-import {
-  getNoticias,
-  STRAPI_MEDIA_URL,
-  STRAPI_URL,
-} from "../../services/services";
+import { Noticia } from "../../services/types.js";
 import { formatDate, formatText } from "../../utils.js";
+import pocketbase from "../../services/pocketbase.js";
+import parse from "html-react-parser";
 
 const News = () => {
   const [visible, setVisible] = useState(false);
@@ -17,8 +14,9 @@ const News = () => {
 
   useEffect(() => {
     (async () => {
-      const result = await getNoticias();
-      setData(result);
+      setData(
+        await pocketbase.collection("noticias").getFullList({ sort: "-data" }),
+      );
     })();
   }, []);
 
@@ -58,11 +56,11 @@ const News = () => {
                 <div
                   className={styles.mediaBg}
                   style={{
-                    backgroundImage: `url(${STRAPI_MEDIA_URL + item?.imagem?.url})`,
+                    backgroundImage: `url(${pocketbase.files.getURL(item, item.imagem)})`,
                   }}
                 />
                 <img
-                  src={STRAPI_MEDIA_URL + item?.imagem?.url}
+                  src={pocketbase.files.getURL(item, item.imagem)}
                   alt={item?.titulo}
                   className={styles.mediaImg}
                 />
@@ -90,18 +88,18 @@ const News = () => {
                 <div
                   className={styles.mediaBg}
                   style={{
-                    backgroundImage: `url(${STRAPI_MEDIA_URL + selected?.imagem?.url})`,
+                    backgroundImage: `url(${pocketbase.files.getURL(selected, selected.imagem)})`,
                   }}
                 />
                 <img
-                  src={STRAPI_MEDIA_URL + selected?.imagem?.url}
+                  src={pocketbase.files.getURL(selected, selected.imagem)}
                   alt={selected.titulo}
                   className={styles.mediaImg}
                 />
               </div>
 
               <p className={styles.dialogDate}>{formatDate(selected.data)}</p>
-              {formatText(selected.texto)}
+              <div className={styles.dialogText}>{parse(selected.texto)}</div>
             </div>
           )}
         </Dialog>
