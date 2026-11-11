@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8371830a.css",
+    "main.js": "/static/js/main.99bd168c.js",
+    "static/media/InterVariable-Italic.woff2": "/static/media/InterVariable-Italic.e295f70fe3e2df296c7b.woff2",
+    "static/media/InterVariable.woff2": "/static/media/InterVariable.a0e477f2f1f9d2376fde.woff2",
+    "static/media/primeicons.svg": "/static/media/primeicons.6ed59f962963a4a73af2.svg",
+    "static/media/encontros.jpeg": "/static/media/encontros.3d3ce92cd3ce9e69ff83.jpeg",
+    "static/media/primeicons.eot": "/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
+    "static/media/primeicons.woff": "/static/media/primeicons.8931fda1930c3bd21e96.woff",
+    "static/media/primeicons.ttf": "/static/media/primeicons.a5c2a53d1ff7a9ff5933.ttf",
+    "static/media/mainbg.jpeg": "/static/media/mainbg.206e1683e04ff34d41f1.jpeg",
+    "static/media/bkg.jpg": "/static/media/bkg.25b4365ea1629f72896a.jpg",
+    "static/media/primeicons.woff2": "/static/media/primeicons.024b32cc7bf399b1a847.woff2",
+    "static/media/logo_pf.png": "/static/media/logo_pf.828fbfc6187e18d232d6.png",
+    "static/media/logo.svg": "/static/media/logo.17883638d6b2b1927c0038c04e864e44.svg",
+    "index.html": "/index.html",
+    "main.8371830a.css.map": "/static/css/main.8371830a.css.map",
+    "main.99bd168c.js.map": "/static/js/main.99bd168c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8371830a.css",
+    "static/js/main.99bd168c.js"
+  ]
+}
