@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "concurrently \"go run . serve\" \"react-scripts start\"",
-    "start": "./ipfx-server serve",
+    "start": "./ipfx-server.exe serve",
     "build": "react-scripts build && go build -o ./ipfx-server.exe"
   },
   "eslintConfig": {
