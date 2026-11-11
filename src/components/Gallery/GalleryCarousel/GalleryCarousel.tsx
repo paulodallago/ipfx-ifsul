@@ -104,8 +104,6 @@ const GalleryCarousel = ({ content, openGallery }: CarouselProps) => {
     const gallery = galleryRef.current;
     if (!gallery) return;
 
-    console.log(content);
-
     gallery.addEventListener("scroll", updateScrollState);
     window.addEventListener("resize", updateScrollState);
 

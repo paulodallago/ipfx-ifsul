@@ -114,10 +114,10 @@ const EventCard = ({ edition, onOpenGallery, className }: EventCardProps) => {
             Campeões
           </h4>
 
-          <ul className={styles.championsList}>
-            {visibleModalities.map((modality: Modalidade) => (
+          <div className={styles.championsList}>
+            {visibleModalities.map((modality: Modalidade, index) => (
               <ModalityItem
-                key={modality.categoria}
+                key={index}
                 categoria={modality.categoria}
                 podio={modality.podio}
               />
@@ -127,10 +127,11 @@ const EventCard = ({ edition, onOpenGallery, className }: EventCardProps) => {
               type="button"
               className={styles.seeMoreButton}
               onClick={() => setExpanded((prev) => !prev)}
+              hidden={edition.modalidades.length <= 1}
             >
               {expanded ? "Ver menos" : "Ver mais"}
             </button>
-          </ul>
+          </div>
         </section>
       ) : null}
     </div>

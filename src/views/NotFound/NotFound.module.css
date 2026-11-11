@@ -1,0 +1,135 @@
+.page {
+  min-height: 68vh;
+  padding: calc(var(--header-height) + 3rem) 8vw 4rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 78% 48%,
+      rgba(52, 189, 173, 0.1),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #1e2823 0%, #17221c 100%);
+}
+
+.content {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.copy {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--lime);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.8rem;
+  height: 2px;
+  background: var(--gold);
+}
+
+.code {
+  margin: 1rem 0 -0.5rem;
+  color: var(--gold);
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 800;
+  letter-spacing: -0.09em;
+  line-height: 0.95;
+  text-shadow: 0 8px 36px rgba(255, 204, 38, 0.13);
+}
+
+.copy h1 {
+  max-width: 600px;
+  margin: 1.25rem 0 0.8rem;
+  color: var(--white-1);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+}
+
+.description {
+  max-width: 510px;
+  margin: 0;
+  color: rgba(249, 250, 251, 0.72);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.homeButton,
+.backButton {
+  min-height: 48px;
+  padding: 0.8rem 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.homeButton {
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: var(--green-1);
+}
+
+.homeButton:hover {
+  transform: translateY(-2px);
+  background: #ffda59;
+}
+
+.backButton {
+  border: 1px solid rgba(249, 250, 251, 0.28);
+  background: transparent;
+  color: var(--white-1);
+  cursor: pointer;
+}
+
+.backButton:hover {
+  transform: translateY(-2px);
+  border-color: rgba(249, 250, 251, 0.65);
+  background: rgba(249, 250, 251, 0.06);
+}
+
+.homeButton:focus-visible,
+.backButton:focus-visible {
+  outline: 3px solid var(--acqua);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768) {
+  .page {
+    padding: calc(var(--header-height) + 2.5rem) 7vw 3rem;
+  }
+}

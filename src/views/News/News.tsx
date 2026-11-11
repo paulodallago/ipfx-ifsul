@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Dialog } from "primereact/dialog";
 import styles from "./News.module.css";
 import { Noticia } from "../../services/types.js";
-import { formatDate, formatText } from "../../utils.js";
+import { formatDate } from "../../utils.js";
 import pocketbase from "../../services/pocketbase.js";
 import parse from "html-react-parser";
 

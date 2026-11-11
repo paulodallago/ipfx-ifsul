@@ -10,20 +10,9 @@
 
 - Persistência em SQLite
 
-#### produção
+## Administração do conteúdo
 
-npm run build
-npx serve build
-
-go build -o ipfx-server.exe main.go
-./ipfx-server.exe serve
-
-#### teste
-
-go run . serve
-
-Urls
-
-/ -> página
-
-/\_ -> dashboards
+A página **Acesso administrador** fica disponível em `/admin`. O acesso é
+validado pelo PocketBase e exige uma conta superusuária já cadastrada no
+servidor. A interface permite gerenciar notícias, eventos, galerias, links,
+textos, contatos e apoiadores, incluindo imagens e conteúdo formatado.

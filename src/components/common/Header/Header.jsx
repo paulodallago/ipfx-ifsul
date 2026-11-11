@@ -13,8 +13,8 @@ const Header = () => {
       key: "home",
       label: "Início",
       icon: "pi pi-home",
-      path: "/",
-      command: () => navigate("/"),
+      path: "/home",
+      command: () => navigate("/home"),
     },
     {
       key: "timeline",
@@ -52,10 +52,7 @@ const Header = () => {
       command: () => navigate("/sobre"),
     },
   ].map((item) => {
-    const isActive =
-      item.path === "/"
-        ? location.pathname === "/"
-        : location.pathname === item.path;
+    const isActive = location.pathname === item.path;
 
     return {
       ...item,
@@ -76,7 +73,7 @@ const Header = () => {
     <div className={styles.menuLeft}>
       <Logo
         className={styles.logo + " simpleHover"}
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/home")}
       />
     </div>
   );

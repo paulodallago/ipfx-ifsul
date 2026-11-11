@@ -3,24 +3,24 @@ export interface Noticia {
   titulo: string;
   sumario: string;
   texto: string;
-  data: Date;
-  imagem: any;
+  data: string;
+  imagem: string;
 }
 
 export interface Link {
   id: string;
   nome: string;
   url: string;
-  imagem: any;
+  imagem: string;
 }
 
 export interface Evento {
   id: string;
   marcador: string;
   nome: string;
-  data: Date;
+  data: string;
   qtd_participantes: number;
-  imagens: any[];
+  imagens: string[];
   modalidades: Modalidade[];
 }
 
@@ -38,22 +38,24 @@ export interface Galeria {
   id: string;
   nome: string;
   descricao: string;
-  data: Date;
-  imagens: any[];
+  data: string;
+  imagens: string[];
 }
 
 export interface Contato {
   id: string;
+  ordem: number;
   icone: string;
   texto: string;
   url: string;
+  convite: boolean;
 }
 
 export interface Apoiador {
   id: string;
-  alt: string;
+  nome: string;
   url: string;
-  logo: any;
+  logo: string;
 }
 
 export interface Texto {

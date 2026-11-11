@@ -47,7 +47,7 @@ export default function Footer() {
                   >
                     <img
                       src={pocketbase.files.getURL(item, item.logo)}
-                      alt={item.alt}
+                      alt={item.nome}
                     />
                   </a>
                 ))}

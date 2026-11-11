@@ -1,0 +1,1088 @@
+.adminPage {
+  min-height: calc(100vh - var(--header-height));
+  padding-top: var(--header-height);
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  background: #f3f6f4;
+  color: #23332a;
+}
+
+.sidebar {
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  padding: 1.6rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  background: #1e2823;
+  color: #f4f4f4;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.3rem 0.65rem 2rem;
+}
+
+.brandIcon,
+.loginIcon {
+  display: grid;
+  place-items: center;
+  color: #1e2823;
+  background: var(--gold);
+}
+
+.brandIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  font-size: 1.15rem;
+}
+
+.brand strong,
+.brand span {
+  display: block;
+}
+
+.brand strong {
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+}
+
+.brand div > span {
+  margin-top: 0.2rem;
+  color: #aeb8b1;
+  font-size: 0.76rem;
+}
+
+.navCaption {
+  padding: 0 0.75rem 0.65rem;
+  color: #91a096;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.collectionNav {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.navItem,
+.signOutButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #cbd4ce;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.navItem {
+  padding: 0.78rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.navItem > i {
+  width: 1.1rem;
+  color: #a7b5ab;
+}
+
+.navItem:hover,
+.signOutButton:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+.navItemActive {
+  background: rgba(154, 225, 87, 0.13);
+  color: #c6f398;
+}
+
+.navItemActive > i {
+  color: var(--lime);
+}
+
+.sidebarBottom {
+  margin-top: auto;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.secureBadge {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(183, 207, 189, 0.13);
+  border-radius: 8px;
+  color: #acb9b0;
+  font-size: 0.75rem;
+}
+
+.secureBadge i {
+  color: var(--lime);
+}
+
+.signOutButton {
+  padding: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.workspace {
+  min-width: 0;
+}
+
+.topbar {
+  min-height: 100px;
+  padding: 1.3rem clamp(1.25rem, 4vw, 3.25rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid #e4eae6;
+  background: #fff;
+}
+
+.breadcrumb {
+  color: #79867e;
+  font-size: 0.78rem;
+}
+
+.topbar h1 {
+  margin: 0.35rem 0 0;
+  color: #1e2823;
+  font-size: 1.45rem;
+}
+
+.connectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #dfece2;
+  border-radius: 999px;
+  background: #f6fbf7;
+  color: #46664e;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.connectionBadge > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #40a85d;
+  box-shadow: 0 0 0 3px rgba(64, 168, 93, 0.12);
+}
+
+.mainContent {
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 2rem clamp(1.25rem, 4vw, 3.25rem) 4rem;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.sectionHeading > div > p {
+  margin: 0.4rem 0 0;
+  color: #738078;
+  font-size: 0.9rem;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.sectionTitle > i {
+  color: #28774b;
+  font-size: 1.2rem;
+}
+
+.sectionTitle h2 {
+  margin: 0;
+  color: #23332a;
+  font-size: 1.6rem;
+}
+
+.primaryButton,
+.secondaryButton,
+.cancelButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 7px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.primaryButton {
+  min-height: 44px;
+  padding: 0.7rem 1rem;
+  border: 1px solid #226441;
+  background: #226441;
+  color: white;
+  font-size: 0.88rem;
+}
+
+.primaryButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #174e30;
+}
+
+.primaryButton:disabled,
+.cancelButton:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.secondaryButton {
+  min-height: 38px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #d7e2da;
+  background: #fff;
+  color: #315a3d;
+  font-size: 0.82rem;
+}
+
+.secondaryButton:hover {
+  background: #f2f8f3;
+}
+
+.toolbar {
+  margin: 1.6rem 0 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.searchBox {
+  width: min(100%, 430px);
+  min-height: 44px;
+  padding: 0 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid #dfe6e1;
+  border-radius: 7px;
+  background: white;
+  color: #7d8a81;
+}
+
+.searchBox:focus-within {
+  border-color: #5a9a6b;
+  box-shadow: 0 0 0 3px rgba(52, 126, 70, 0.1);
+}
+
+.searchBox input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #27382d;
+  font: inherit;
+  font-size: 0.88rem;
+}
+
+.recordCount {
+  color: #76827a;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.recordGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.recordCard {
+  overflow: hidden;
+  border: 1px solid #e1e8e3;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 3px 12px rgba(36, 57, 43, 0.035);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.recordCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(36, 57, 43, 0.09);
+}
+
+.recordImage,
+.recordImagePlaceholder {
+  width: 100%;
+  height: 155px;
+  display: grid;
+  place-items: center;
+  object-fit: cover;
+  background: linear-gradient(135deg, #eaf1eb, #dce8df);
+  color: #6e8d75;
+}
+
+.recordImagePlaceholder > i {
+  font-size: 2rem;
+}
+
+.recordBody {
+  padding: 1rem;
+}
+
+.recordMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: #7a887f;
+  font-size: 0.72rem;
+}
+
+.recordMeta > span {
+  color: #38804d;
+  font-weight: 700;
+}
+
+.recordBody h3 {
+  margin: 0.55rem 0 0.45rem;
+  overflow-wrap: anywhere;
+  color: #25352b;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.recordDescription {
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  color: #76827a;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.attachmentCount {
+  margin-top: 0.65rem;
+  display: inline-flex;
+  gap: 0.4rem;
+  color: #77877b;
+  font-size: 0.74rem;
+}
+
+.recordActions {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #edf1ee;
+}
+
+.editButton,
+.deleteButton,
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.editButton {
+  padding: 0.35rem 0.2rem;
+  color: #28643a;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.deleteButton {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  color: #a65c57;
+}
+
+.deleteButton:hover {
+  background: #fbefee;
+}
+
+.emptyState {
+  min-height: 310px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #77847b;
+  text-align: center;
+}
+
+.emptyState > i {
+  color: #519364;
+  font-size: 1.7rem;
+}
+
+.emptyIcon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: #e6f0e8;
+  color: #478456;
+  font-size: 1.35rem;
+}
+
+.emptyState h3 {
+  margin: 1rem 0 0.3rem;
+  color: #34443a;
+  font-size: 1.1rem;
+}
+
+.emptyState p {
+  margin: 0 0 1rem;
+  font-size: 0.87rem;
+}
+
+.successMessage,
+.loadError,
+.formError {
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 7px;
+  font-size: 0.86rem;
+}
+
+.successMessage {
+  margin-bottom: 1rem;
+  border: 1px solid #cfe7d3;
+  background: #eff8f0;
+  color: #27623a;
+}
+
+.loadError {
+  margin-bottom: 1rem;
+  border: 1px solid #f0d4d1;
+  background: #fff5f4;
+  color: #8d3932;
+}
+
+.loadError > span {
+  flex: 1;
+}
+
+.loadError button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.modalBackdrop {
+  position: fixed;
+  z-index: 1200;
+  inset: 0;
+  padding: 2vh 1rem;
+  display: grid;
+  place-items: center;
+  background: rgba(12, 21, 15, 0.65);
+  backdrop-filter: blur(3px);
+}
+
+.editorDialog {
+  width: min(900px, 100%);
+  max-height: 96vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e2e9e4;
+  border-radius: 12px;
+  background: #fbfcfb;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+}
+
+.dialogHeader {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8ede9;
+  background: #fff;
+}
+
+.eyebrow {
+  color: #438354;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dialogHeader h2 {
+  margin: 0.25rem 0 0;
+  color: #26372c;
+  font-size: 1.3rem;
+}
+
+.iconButton {
+  width: 38px;
+  height: 38px;
+  border-radius: 7px;
+  color: #728078;
+}
+
+.iconButton:hover {
+  background: #f0f4f1;
+}
+
+.editorForm {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 1.2rem;
+  overflow-y: auto;
+}
+
+.formField,
+.richTextField,
+.fileField {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #35463a;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.formField input,
+.formField textarea,
+.modalities input {
+  width: 100%;
+  min-height: 42px;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #d9e2dc;
+  border-radius: 6px;
+  outline: 0;
+  background: #fff;
+  color: #29372e;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+.formField textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+
+.formField input:focus,
+.formField textarea:focus,
+.modalities input:focus,
+.richTextField > textarea:focus {
+  border-color: #589a68;
+  box-shadow: 0 0 0 3px rgba(52, 126, 70, 0.1);
+}
+
+.richTextField,
+.fileField,
+.modalities,
+.checkboxField,
+.formError,
+.formActions {
+  grid-column: 1 / -1;
+}
+
+.richTextField > textarea {
+  min-height: 210px;
+  padding: 0.8rem;
+  border: 1px solid #d9e2dc;
+  border-radius: 0 0 6px 6px;
+  outline: 0;
+  background: #fff;
+  color: #29372e;
+  font: 0.83rem/1.55 Consolas, "Courier New", monospace;
+  resize: vertical;
+}
+
+.editorToolbar {
+  min-height: 40px;
+  padding: 0.35rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid #d9e2dc;
+  border-radius: 6px 6px 0 0;
+  background: #f1f5f2;
+}
+
+.editorToolbar button {
+  min-width: 34px;
+  height: 30px;
+  padding: 0 0.45rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: #405c47;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.75rem;
+}
+
+.editorToolbar button:hover {
+  border-color: #d7e3d9;
+  background: white;
+}
+
+.editorToolbar > span {
+  margin-left: auto;
+  padding-right: 0.4rem;
+  color: #7b897f;
+  font-size: 0.67rem;
+  font-weight: 700;
+}
+
+.fieldHint {
+  margin: 0;
+  color: #7a887e;
+  font-size: 0.73rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.previewLabel {
+  margin-top: 0.35rem;
+  color: #536459;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.richTextPreview {
+  width: 100%;
+  height: 180px;
+  border: 1px solid #d9e2dc;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.modalities {
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  display: grid;
+  gap: 0.85rem;
+  border: 1px solid #dfe7e1;
+  border-radius: 8px;
+}
+
+.modalities legend {
+  padding: 0 0.45rem;
+  color: #35463a;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.modalityCard {
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.8rem;
+  border: 1px solid #e4ebe6;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.modalityHeader {
+  display: flex;
+  align-items: end;
+  gap: 0.7rem;
+}
+
+.modalityHeader label,
+.podiumRow label {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 0.35rem;
+  color: #536459;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.podiumList {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.podiumRow {
+  display: flex;
+  align-items: end;
+  gap: 0.6rem;
+}
+
+.podiumRow label:first-child {
+  flex: 0.45;
+}
+
+.removeButton {
+  min-height: 36px;
+  padding: 0.4rem 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid #efd6d3;
+  border-radius: 5px;
+  background: #fff;
+  color: #a3544d;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.73rem;
+  white-space: nowrap;
+}
+
+.removeButton:hover {
+  background: #fff5f4;
+}
+
+.checkboxField {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #35463a;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.checkboxField input {
+  width: 17px;
+  height: 17px;
+  accent-color: #28774b;
+}
+
+.fileGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.filePreview {
+  width: 112px;
+  padding: 0.35rem;
+  display: grid;
+  gap: 0.3rem;
+  border: 1px solid #e0e8e2;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.filePreview img {
+  width: 100%;
+  height: 72px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.filePreview > span {
+  overflow: hidden;
+  color: #718076;
+  font-size: 0.65rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.filePreview .removeButton {
+  min-height: 28px;
+  padding: 0.2rem;
+}
+
+.fileField > input[type="file"] {
+  padding: 0.6rem;
+  border: 1px dashed #cbd8ce;
+  border-radius: 6px;
+  background: #fff;
+  color: #536459;
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.formError {
+  border: 1px solid #f0d4d1;
+  background: #fff5f4;
+  color: #8d3932;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.formActions {
+  position: sticky;
+  bottom: -1.5rem;
+  margin: 0 -1.5rem -1.5rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  border-top: 1px solid #e7ede8;
+  background: rgba(251, 252, 251, 0.96);
+}
+
+.cancelButton {
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+  border: 1px solid #d9e2dc;
+  background: white;
+  color: #59685e;
+  font-size: 0.86rem;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: #f1f5f2;
+}
+
+.loginPage {
+  min-height: calc(100vh - var(--header-height));
+  padding: calc(var(--header-height) + 3rem) 1.25rem 4rem;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 75% 30%, rgba(52, 189, 173, 0.1), transparent 35%),
+    linear-gradient(135deg, #1e2823, #17221c);
+}
+
+.loginCard {
+  width: min(440px, 100%);
+  padding: 2.2rem;
+  border: 1px solid rgba(183, 207, 189, 0.16);
+  border-radius: 14px;
+  background: rgba(30, 40, 35, 0.88);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.27);
+  color: #f4f4f4;
+}
+
+.loginIcon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1.5rem;
+  border-radius: 15px;
+  font-size: 1.3rem;
+}
+
+.loginCard .eyebrow {
+  color: var(--lime);
+}
+
+.loginCard h1 {
+  margin: 0.45rem 0 0.5rem;
+  color: #fff;
+  font-size: 1.7rem;
+}
+
+.loginCard > p {
+  margin: 0;
+  color: rgba(249, 250, 251, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.loginForm {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.loginForm .formField {
+  color: #d8e1da;
+}
+
+.loginForm .formField input {
+  border-color: rgba(183, 207, 189, 0.23);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.loginForm .formField input:focus {
+  border-color: #82bf8e;
+}
+
+.loginForm .primaryButton {
+  width: 100%;
+  margin-top: 0.2rem;
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #1e2823;
+}
+
+.loginForm .primaryButton:hover:not(:disabled) {
+  background: #ffda59;
+}
+
+.loginFootnote {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  color: rgba(249, 250, 251, 0.55);
+  font-size: 0.72rem;
+}
+
+.loginFootnote i {
+  color: var(--lime);
+}
+
+@media (max-width: 850px) {
+  .adminPage {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+    top: auto;
+    height: auto;
+    padding: 0.8rem 1rem;
+  }
+
+  .brand {
+    padding: 0.2rem 0.2rem 0.8rem;
+  }
+
+  .navCaption,
+  .sidebarBottom {
+    display: none;
+  }
+
+  .sidebarBottom {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .secureBadge {
+    display: none;
+  }
+
+  .signOutButton {
+    width: auto;
+    padding: 0.45rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .collectionNav {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+  }
+
+  .navItem {
+    width: auto;
+    flex: 0 0 auto;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .topbar {
+    min-height: 86px;
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topbar h1 {
+    font-size: 1.25rem;
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sectionHeading > .primaryButton {
+    width: 100%;
+  }
+
+  .toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+
+  .recordGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .editorForm {
+    padding: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .formActions {
+    bottom: -1rem;
+    margin: 0 -1rem -1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .dialogHeader {
+    padding: 1rem;
+  }
+
+  .modalityHeader,
+  .podiumRow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .podiumRow .removeButton {
+    align-self: flex-end;
+  }
+
+  .loginCard {
+    padding: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navItem,
+  .signOutButton,
+  .primaryButton,
+  .recordCard {
+    transition: none;
+  }
+}

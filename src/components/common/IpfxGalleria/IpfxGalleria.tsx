@@ -13,7 +13,7 @@ const IpfxGalleria = (props: any) => {
     return ed.imagens.map((img: string, i: number) => ({
       itemImageSrc: pocketbase.files.getURL(ed, img),
       thumbnailImageSrc: pocketbase.files.getURL(ed, img),
-      alt: `${ed.nom} - foto ${i + 1}`,
+      alt: `${ed.nome} - foto ${i + 1}`,
       title: ed.nome,
     }));
   };

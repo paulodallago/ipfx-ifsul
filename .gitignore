@@ -23,4 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 /pb_data
+ipfx-server.exe
 ipfx-server
+ipfx-server.exe
