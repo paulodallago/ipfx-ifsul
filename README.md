@@ -16,3 +16,8 @@ A página **Acesso administrador** fica disponível em `/admin`. O acesso é
 validado pelo PocketBase e exige uma conta superusuária já cadastrada no
 servidor. A interface permite gerenciar notícias, eventos, galerias, links,
 textos, contatos e apoiadores, incluindo imagens e conteúdo formatado.
+
+#### "deploy"
+
+- Copiar build e ipfx-server.exe pro servidor
+- ./ipfx-server --http=0.0.0.0:8090

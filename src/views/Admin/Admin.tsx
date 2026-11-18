@@ -1,8 +1,48 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import pocketbase from "../../services/pocketbase";
 import styles from "./Admin.module.css";
+import { Modalidade } from "../../services/types";
 
-const COLLECTIONS = [
+interface CollectionField {
+  name: string;
+  label: string;
+  type: string;
+  multiple?: boolean;
+  maxFiles?: number;
+}
+
+interface CollectionConfig {
+  id: string;
+  label: string;
+  icon: string;
+  sort?: string;
+  title: string;
+  fields: CollectionField[];
+}
+
+interface AdminRecord {
+  id: string;
+  [key: string]: any;
+}
+
+interface RecordEditorProps {
+  config: CollectionConfig;
+  record?: AdminRecord;
+  onClose: () => void;
+  onSaved: (message: string) => void;
+}
+
+interface LoginProps {
+  onLogin: () => void;
+}
+
+interface FileFieldProps {
+  field: CollectionField;
+  record: AdminRecord | null;
+  onRemoveFile: (fieldName: string, fileName: string) => void;
+}
+
+const COLLECTIONS: CollectionConfig[] = [
   {
     id: "noticias",
     label: "Notícias",
@@ -39,7 +79,11 @@ const COLLECTIONS = [
         multiple: true,
         maxFiles: 30,
       },
-      { name: "modalidades", label: "Modalidades e pódios", type: "modalities" },
+      {
+        name: "modalidades",
+        label: "Modalidades e pódios",
+        type: "modalities",
+      },
     ],
   },
   {
@@ -111,33 +155,50 @@ const COLLECTIONS = [
       { name: "logo", label: "Logo", type: "file" },
     ],
   },
+  {
+    id: "faq",
+    label: "Perguntas frequentes",
+    icon: "pi pi-question-circle",
+    title: "pergunta",
+    fields: [
+      { name: "pergunta", label: "Pergunta", type: "text" },
+      { name: "resposta", label: "Resposta", type: "textarea" },
+    ],
+  },
 ];
 
-const getErrorMessage = (error) =>
+const getErrorMessage = (error: any) =>
   error?.response?.message ||
   error?.message ||
   "Não foi possível concluir a operação. Tente novamente.";
 
-const toDateInput = (value) => {
+const toDateInput = (value: any) => {
   if (!value) return "";
+
   const date = new Date(value);
+
   if (Number.isNaN(date.getTime())) return "";
-  const pad = (part) => String(part).padStart(2, "0");
+
+  const pad = (part: number) => String(part).padStart(2, "0");
+
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
 };
 
-const fileNamesFor = (record, fieldName) => {
+const fileNamesFor = (record: any, fieldName: string): string[] => {
   const value = record?.[fieldName];
-  if (Array.isArray(value)) return value.filter(Boolean);
-  return value ? [value] : [];
+  if (Array.isArray(value))
+    return value.filter(
+      (item): item is string => typeof item === "string" && Boolean(item),
+    );
+  return typeof value === "string" && value ? [value] : [];
 };
 
-const normalizeModalities = (value) =>
+const normalizeModalities = (value: any) =>
   Array.isArray(value)
     ? value.map((modality) => ({
         categoria: modality?.categoria || "",
         podio: Array.isArray(modality?.podio)
-          ? modality.podio.map((player) => ({
+          ? modality.podio.map((player: any) => ({
               jogador: player?.jogador || "",
               posicao: player?.posicao || "",
             }))
@@ -145,83 +206,132 @@ const normalizeModalities = (value) =>
       }))
     : [];
 
-function RichTextField({ label, value, onChange }) {
-  const textareaRef = useRef(null);
+const decodeHtmlEntitiesInText = (value: string) => {
+  const decoder = document.createElement("textarea");
 
-  const insertMarkup = (before, after) => {
-    const textarea = textareaRef.current;
-    if (!textarea) return;
-    const start = textarea.selectionStart;
-    const end = textarea.selectionEnd;
-    const selected = value.slice(start, end);
-    const content = selected || "texto";
-    const nextValue =
-      value.slice(0, start) + before + content + after + value.slice(end);
-    onChange(nextValue);
-    requestAnimationFrame(() => {
-      textarea.focus();
-      const selectionStart = start + before.length;
-      textarea.setSelectionRange(
-        selectionStart,
-        selectionStart + content.length,
-      );
-    });
+  return value.replace(
+    /(<[^>]*>)|&(?:#\d+|#x[\da-f]+|[a-z][a-z\d]+);/gi,
+    (match, tag: string | undefined) => {
+      if (tag) return tag;
+      decoder.innerHTML = match;
+      const decoded = decoder.value;
+      return decoded === "&" ||
+        decoded === "<" ||
+        decoded === ">" ||
+        decoded === '"' ||
+        decoded === "'"
+        ? match
+        : decoded;
+    },
+  );
+};
+
+interface RichTextFieldProps {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}
+
+function RichTextField({ label, value, onChange }: RichTextFieldProps) {
+  const editorRef = useRef<HTMLDivElement>(null);
+  const initialValue = useRef(value);
+
+  useEffect(() => {
+    if (editorRef.current) editorRef.current.innerHTML = initialValue.current;
+  }, []);
+
+  const applyFormat = (command: string, commandValue?: string) => {
+    const editor = editorRef.current;
+    if (!editor) return;
+    editor.focus();
+    document.execCommand(command, false, commandValue);
+    onChange(editor.innerHTML);
   };
 
-  const preview = `<!doctype html><html><head><meta charset="utf-8"><style>body{font:16px/1.65 Arial,sans-serif;color:#29352f;padding:12px;overflow-wrap:anywhere}img{max-width:100%;height:auto}blockquote{border-left:3px solid #258a52;padding-left:1rem;color:#59665e}a{color:#226441}</style></head><body>${value}</body></html>`;
+  const addLink = () => {
+    const url = window.prompt("Endereço do link:");
+    if (url) applyFormat("createLink", url);
+  };
 
   return (
     <div className={styles.richTextField}>
       <label>{label}</label>
-      <div className={styles.editorToolbar} aria-label="Formatação rápida">
-        <button type="button" onClick={() => insertMarkup("<strong>", "</strong>")}>
+      <div
+        className={styles.editorToolbar}
+        role="toolbar"
+        aria-label="Formatação"
+      >
+        <button
+          type="button"
+          aria-label="Negrito"
+          title="Negrito"
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() => applyFormat("bold")}
+        >
           <strong>B</strong>
         </button>
-        <button type="button" onClick={() => insertMarkup("<em>", "</em>")}>
+        <button
+          type="button"
+          aria-label="Itálico"
+          title="Itálico"
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() => applyFormat("italic")}
+        >
           <em>I</em>
         </button>
-        <button type="button" onClick={() => insertMarkup("<h2>", "</h2>")}>
+        <button
+          type="button"
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() => applyFormat("formatBlock", "h2")}
+        >
           Título
         </button>
         <button
           type="button"
-          onClick={() => insertMarkup("<ul><li>", "</li></ul>")}
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() => applyFormat("insertUnorderedList")}
         >
           Lista
         </button>
         <button
           type="button"
-          onClick={() => insertMarkup('<a href="">', "</a>")}
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={addLink}
         >
           Link
         </button>
-        <span>HTML</span>
+        <span>Editor visual</span>
       </div>
-      <textarea
-        ref={textareaRef}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        rows={10}
-        spellCheck="false"
-        aria-label={`${label} em HTML`}
+      <div
+        ref={editorRef}
+        className={styles.richTextEditor}
+        contentEditable
+        suppressContentEditableWarning
+        role="textbox"
+        aria-multiline="true"
+        aria-label={label}
+        data-placeholder="Comece a escrever..."
+        onInput={(event) => onChange(event.currentTarget.innerHTML)}
       />
       <p className={styles.fieldHint}>
-        O conteúdo é salvo como HTML para manter a formatação existente.
+        Use a barra de ferramentas para formatar o conteúdo.
       </p>
-      <div className={styles.previewLabel}>Pré-visualização</div>
-      <iframe
-        className={styles.richTextPreview}
-        title={`Pré-visualização: ${label}`}
-        sandbox=""
-        srcDoc={preview}
-      />
     </div>
   );
 }
 
-function ModalitiesField({ value, onChange }) {
-  const updateModality = (index, updated) => {
-    onChange(value.map((item, itemIndex) => (itemIndex === index ? updated : item)));
+interface ModalitiesFieldProps {
+  value: Modalidade[];
+  onChange: (value: Modalidade[]) => void;
+}
+
+function ModalitiesField({ value, onChange }: ModalitiesFieldProps) {
+  const updateModality = (index: number, updated: Modalidade) => {
+    onChange(
+      value.map((item: Modalidade, itemIndex: number) =>
+        itemIndex === index ? updated : item,
+      ),
+    );
   };
 
   return (
@@ -346,7 +456,7 @@ function ModalitiesField({ value, onChange }) {
   );
 }
 
-function FileField({ field, record, onRemoveFile }) {
+function FileField({ field, record, onRemoveFile }: FileFieldProps) {
   const existingFiles = fileNamesFor(record, field.name);
 
   return (
@@ -356,10 +466,9 @@ function FileField({ field, record, onRemoveFile }) {
         <div className={styles.fileGrid}>
           {existingFiles.map((fileName) => (
             <div className={styles.filePreview} key={fileName}>
-              <img
-                src={pocketbase.files.getURL(record, fileName)}
-                alt=""
-              />
+              {record && (
+                <img src={pocketbase.files.getURL(record, fileName)} alt="" />
+              )}
               <span title={fileName}>{fileName}</span>
               <button
                 type="button"
@@ -388,14 +497,16 @@ function FileField({ field, record, onRemoveFile }) {
   );
 }
 
-function RecordEditor({ config, record, onClose, onSaved }) {
-  const [values, setValues] = useState(() => {
-    const initial = {};
-    config.fields.forEach((field) => {
+function RecordEditor({ config, record, onClose, onSaved }: RecordEditorProps) {
+  const [values, setValues] = useState<Record<string, any>>(() => {
+    const initial: Record<string, any> = {};
+    config.fields.forEach((field: CollectionField) => {
       if (field.type === "modalities") return;
       const current = record?.[field.name];
       if (field.type === "date") initial[field.name] = toDateInput(current);
       else if (field.type === "boolean") initial[field.name] = Boolean(current);
+      else if (field.type === "richtext")
+        initial[field.name] = decodeHtmlEntitiesInText(current ?? "");
       else initial[field.name] = current ?? "";
     });
     return initial;
@@ -403,27 +514,29 @@ function RecordEditor({ config, record, onClose, onSaved }) {
   const [modalities, setModalities] = useState(() =>
     normalizeModalities(record?.modalidades),
   );
-  const [removedFiles, setRemovedFiles] = useState({});
+  const [removedFiles, setRemovedFiles] = useState<Record<string, string[]>>(
+    {},
+  );
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
-  const changeValue = (name, value) =>
+  const changeValue = (name: string, value: any) =>
     setValues((current) => ({ ...current, [name]: value }));
 
-  const removeFile = (fieldName, fileName) =>
+  const removeFile = (fieldName: string, fileName: string) =>
     setRemovedFiles((current) => ({
       ...current,
       [fieldName]: [...(current[fieldName] || []), fileName],
     }));
 
-  const save = async (event) => {
+  const save = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSaving(true);
     setError("");
 
     try {
       const formData = new FormData();
-      config.fields.forEach((field) => {
+      config.fields.forEach((field: CollectionField) => {
         if (field.type === "file" || field.type === "files") return;
         if (field.type === "modalities") {
           formData.append(field.name, JSON.stringify(modalities));
@@ -444,12 +557,15 @@ function RecordEditor({ config, record, onClose, onSaved }) {
       });
 
       config.fields
-        .filter((field) => field.type === "file" || field.type === "files")
-        .forEach((field) => {
+        .filter(
+          (field: CollectionField) =>
+            field.type === "file" || field.type === "files",
+        )
+        .forEach((field: CollectionField) => {
           const input = event.currentTarget.elements.namedItem(
             `${field.name}Upload`,
-          );
-          const selectedFiles = Array.from(input?.files || []);
+          ) as HTMLInputElement | null;
+          const selectedFiles = Array.from(input?.files || []) as File[];
           const keptFiles = fileNamesFor(record, field.name).filter(
             (fileName) => !(removedFiles[field.name] || []).includes(fileName),
           );
@@ -461,9 +577,7 @@ function RecordEditor({ config, record, onClose, onSaved }) {
               `${field.label}: o limite é de ${field.maxFiles} imagens.`,
             );
           }
-          selectedFiles.forEach((file) =>
-            formData.append(field.name, file),
-          );
+          selectedFiles.forEach((file) => formData.append(field.name, file));
           (removedFiles[field.name] || []).forEach((fileName) =>
             formData.append(`${field.name}-`, fileName),
           );
@@ -603,6 +717,7 @@ function RecordEditor({ config, record, onClose, onSaved }) {
                   }
                   step={field.type === "number" ? "any" : undefined}
                   value={values[field.name]}
+                  readOnly={field.name === "Identificador"}
                   onChange={(event) =>
                     changeValue(field.name, event.target.value)
                   }
@@ -640,13 +755,13 @@ function RecordEditor({ config, record, onClose, onSaved }) {
   );
 }
 
-function Login({ onLogin }) {
+function Login({ onLogin }: LoginProps) {
   const [identity, setIdentity] = useState("");
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  const submit = async (event) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitting(true);
     setError("");
@@ -656,7 +771,7 @@ function Login({ onLogin }) {
         .authWithPassword(identity.trim(), password);
       setPassword("");
       onLogin();
-    } catch (loginError) {
+    } catch (loginError: any) {
       setError(
         loginError?.status === 400 || loginError?.status === 401
           ? "Usuário ou senha inválidos."
@@ -712,12 +827,14 @@ function Login({ onLogin }) {
             disabled={submitting}
           >
             {submitting ? "Verificando acesso..." : "Entrar"}
-            {!submitting && <i className="pi pi-arrow-right" aria-hidden="true" />}
+            {!submitting && (
+              <i className="pi pi-arrow-right" aria-hidden="true" />
+            )}
           </button>
         </form>
         <div className={styles.loginFootnote}>
-          <i className="pi pi-lock" aria-hidden="true" />
-          A autenticação é validada pelo próprio PocketBase.
+          <i className="pi pi-lock" aria-hidden="true" />A autenticação é
+          validada pelo próprio PocketBase.
         </div>
       </section>
     </main>
@@ -729,16 +846,19 @@ function Admin() {
     pocketbase.authStore.isValid && pocketbase.authStore.isSuperuser,
   );
   const [activeCollection, setActiveCollection] = useState(COLLECTIONS[0].id);
-  const [records, setRecords] = useState([]);
+  const [records, setRecords] = useState<AdminRecord[]>([]);
   const [loading, setLoading] = useState(false);
   const [loadError, setLoadError] = useState("");
   const [search, setSearch] = useState("");
-  const [editorRecord, setEditorRecord] = useState(undefined);
+  const [editorRecord, setEditorRecord] = useState<AdminRecord | undefined>(
+    undefined,
+  );
   const [editorOpen, setEditorOpen] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
   const [notice, setNotice] = useState("");
 
-  const config = COLLECTIONS.find((item) => item.id === activeCollection);
+  const config =
+    COLLECTIONS.find((item) => item.id === activeCollection) || COLLECTIONS[0];
 
   useEffect(() => {
     const unsubscribe = pocketbase.authStore.onChange(() => {
@@ -756,9 +876,9 @@ function Admin() {
     setLoadError("");
     pocketbase
       .collection(activeCollection)
-      .getFullList({ sort: config.sort })
+      .getFullList(config.sort ? { sort: config.sort } : undefined)
       .then((result) => {
-        if (active) setRecords(result);
+        if (active) setRecords(result as unknown as AdminRecord[]);
       })
       .catch((error) => {
         if (active) setLoadError(getErrorMessage(error));
@@ -785,9 +905,12 @@ function Admin() {
     );
   }, [records, search]);
 
-  const getRecordTitle = (record) => {
+  const getRecordTitle = (record: AdminRecord) => {
     const title = record[config.title];
-    if (title) return String(title).replace(/<[^>]*>/g, "").trim();
+    if (title)
+      return String(title)
+        .replace(/<[^>]*>/g, "")
+        .trim();
     return "Registro sem título";
   };
 
@@ -797,12 +920,10 @@ function Admin() {
     setNotice("");
   };
 
-  const deleteRecord = async (record) => {
+  const deleteRecord = async (record: AdminRecord) => {
     const title = getRecordTitle(record);
     if (
-      !window.confirm(
-        `Excluir "${title}"? Esta ação não pode ser desfeita.`,
-      )
+      !window.confirm(`Excluir "${title}"? Esta ação não pode ser desfeita.`)
     ) {
       return;
     }
@@ -817,7 +938,8 @@ function Admin() {
     }
   };
 
-  if (!isAuthenticated) return <Login onLogin={() => setIsAuthenticated(true)} />;
+  if (!isAuthenticated)
+    return <Login onLogin={() => setIsAuthenticated(true)} />;
 
   return (
     <main className={styles.adminPage}>
@@ -909,7 +1031,9 @@ function Admin() {
               />
             </label>
             <span className={styles.recordCount}>
-              {loading ? "Carregando..." : `${filteredRecords.length} registros`}
+              {loading
+                ? "Carregando..."
+                : `${filteredRecords.length} registros`}
             </span>
           </div>
 
@@ -942,7 +1066,11 @@ function Admin() {
               <span className={styles.emptyIcon}>
                 <i className={config.icon} aria-hidden="true" />
               </span>
-              <h3>{search ? "Nenhum resultado encontrado" : "Ainda não há registros"}</h3>
+              <h3>
+                {search
+                  ? "Nenhum resultado encontrado"
+                  : "Ainda não há registros"}
+              </h3>
               <p>
                 {search
                   ? "Tente buscar por outro termo."
@@ -975,6 +1103,7 @@ function Admin() {
                   : null;
                 const metadata =
                   record.sumario ||
+                  record.resposta ||
                   record.identificador ||
                   record.url ||
                   record.descricao ||
@@ -1007,7 +1136,8 @@ function Admin() {
                       {files.length > 0 && (
                         <span className={styles.attachmentCount}>
                           <i className="pi pi-images" aria-hidden="true" />
-                          {files.length} {files.length === 1 ? "imagem" : "imagens"}
+                          {files.length}{" "}
+                          {files.length === 1 ? "imagem" : "imagens"}
                         </span>
                       )}
                       <div className={styles.recordActions}>

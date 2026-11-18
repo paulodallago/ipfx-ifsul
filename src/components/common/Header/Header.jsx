@@ -51,6 +51,13 @@ const Header = () => {
       path: "/sobre",
       command: () => navigate("/sobre"),
     },
+    {
+      key: "faq",
+      label: "FAQ",
+      icon: "pi pi-question-circle",
+      path: "/faq",
+      command: () => navigate("/faq"),
+    },
   ].map((item) => {
     const isActive = location.pathname === item.path;
 

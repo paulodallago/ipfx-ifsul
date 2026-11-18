@@ -64,3 +64,9 @@ export interface Texto {
   titulo: string;
   texto: string;
 }
+
+export interface Faq {
+  id: string;
+  pergunta: string;
+  resposta: string;
+}

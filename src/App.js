@@ -18,11 +18,12 @@ import {
 } from "react-router-dom";
 import Gallery from "./views/Gallery/Gallery.tsx";
 import About from "./views/About/About.tsx";
+import FaqPage from "./views/FaqPage/FaqPage.tsx";
 import Events from "./views/Events/Events";
 import Links from "./views/Links/Links.tsx";
 import News from "./views/News/News.tsx";
 import NotFound from "./views/NotFound/NotFound";
-import Admin from "./views/Admin/Admin";
+import Admin from "./views/Admin/Admin.tsx";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -48,6 +49,7 @@ function AppLayout() {
         <Route path="/home" element={<Home />} />
         <Route path="/galeria" element={<Gallery />} />
         <Route path="/sobre" element={<About />} />
+        <Route path="/faq" element={<FaqPage />} />
         <Route path="/timeline" element={<Events />} />
         <Route path="/links" element={<Links />} />
         <Route path="/noticias" element={<News />} />

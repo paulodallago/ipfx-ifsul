@@ -1,21 +1,35 @@
+.adminPage,
+.adminPage *,
+.loginPage,
+.loginPage *,
+.modalBackdrop,
+.modalBackdrop * {
+  box-sizing: border-box;
+}
+
 .adminPage {
-  min-height: calc(100vh - var(--header-height));
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
   padding-top: var(--header-height);
   display: grid;
   grid-template-columns: 248px minmax(0, 1fr);
-  background: #f3f6f4;
+  background: var(--white-1);
   color: #23332a;
+  overflow-x: clip;
 }
 
 .sidebar {
   position: sticky;
   top: var(--header-height);
   height: calc(100vh - var(--header-height));
+  min-width: 0;
   padding: 1.6rem 1rem 1rem;
   display: flex;
   flex-direction: column;
-  background: #1e2823;
-  color: #f4f4f4;
+  background: var(--black-1);
+  color: var(--font-white);
+  overflow-y: auto;
 }
 
 .brand {
@@ -23,13 +37,15 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.3rem 0.65rem 2rem;
+  min-width: 0;
 }
 
 .brandIcon,
 .loginIcon {
+  flex-shrink: 0;
   display: grid;
   place-items: center;
-  color: #1e2823;
+  color: var(--black-1);
   background: var(--gold);
 }
 
@@ -67,6 +83,7 @@
 .collectionNav {
   display: grid;
   gap: 0.35rem;
+  min-width: 0;
 }
 
 .navItem,
@@ -94,6 +111,7 @@
 
 .navItem > i {
   width: 1.1rem;
+  flex-shrink: 0;
   color: #a7b5ab;
 }
 
@@ -114,6 +132,7 @@
 
 .sidebarBottom {
   margin-top: auto;
+  padding-top: 1rem;
   display: grid;
   gap: 0.8rem;
 }
@@ -140,6 +159,7 @@
 
 .workspace {
   min-width: 0;
+  width: 100%;
 }
 
 .topbar {
@@ -160,7 +180,7 @@
 
 .topbar h1 {
   margin: 0.35rem 0 0;
-  color: #1e2823;
+  color: var(--black-1);
   font-size: 1.45rem;
 }
 
@@ -186,6 +206,7 @@
 }
 
 .mainContent {
+  width: 100%;
   max-width: 1460px;
   margin: 0 auto;
   padding: 2rem clamp(1.25rem, 4vw, 3.25rem) 4rem;
@@ -196,6 +217,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.2rem;
+}
+
+.sectionHeading > div {
+  min-width: 0;
 }
 
 .sectionHeading > div > p {
@@ -211,6 +236,7 @@
 }
 
 .sectionTitle > i {
+  flex-shrink: 0;
   color: #28774b;
   font-size: 1.2rem;
 }
@@ -240,10 +266,11 @@
 .primaryButton {
   min-height: 44px;
   padding: 0.7rem 1rem;
-  border: 1px solid #226441;
-  background: #226441;
+  border: 1px solid var(--green-2);
+  background: var(--green-2);
   color: white;
   font-size: 0.88rem;
+  white-space: nowrap;
 }
 
 .primaryButton:hover:not(:disabled) {
@@ -280,6 +307,7 @@
 
 .searchBox {
   width: min(100%, 430px);
+  min-width: 0;
   min-height: 44px;
   padding: 0 0.8rem;
   display: flex;
@@ -298,6 +326,7 @@
 
 .searchBox input {
   width: 100%;
+  min-width: 0;
   border: 0;
   outline: 0;
   background: transparent;
@@ -319,6 +348,7 @@
 }
 
 .recordCard {
+  min-width: 0;
   overflow: hidden;
   border: 1px solid #e1e8e3;
   border-radius: 10px;
@@ -351,6 +381,7 @@
 
 .recordBody {
   padding: 1rem;
+  min-width: 0;
 }
 
 .recordMeta {
@@ -378,6 +409,8 @@
   margin: 0;
   display: -webkit-box;
   overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   color: #76827a;
   font-size: 0.82rem;
   line-height: 1.5;
@@ -388,6 +421,7 @@
 .attachmentCount {
   margin-top: 0.65rem;
   display: inline-flex;
+  align-items: center;
   gap: 0.4rem;
   color: #77877b;
   font-size: 0.74rem;
@@ -397,6 +431,7 @@
   margin-top: 1rem;
   padding-top: 0.8rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border-top: 1px solid #edf1ee;
 }
@@ -415,15 +450,16 @@
 }
 
 .editButton {
-  padding: 0.35rem 0.2rem;
+  min-height: 36px;
+  padding: 0.35rem 0.4rem;
   color: #28643a;
   font-size: 0.82rem;
   font-weight: 700;
 }
 
 .deleteButton {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 6px;
   color: #a65c57;
 }
@@ -433,8 +469,8 @@
 }
 
 .emptyState {
-  min-height: 310px;
-  padding: 2rem;
+  min-height: 280px;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -475,6 +511,7 @@
 .formError {
   padding: 0.8rem 1rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.6rem;
   border-radius: 7px;
@@ -496,7 +533,9 @@
 }
 
 .loadError > span {
-  flex: 1;
+  flex: 1 1 200px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .loadError button {
@@ -514,15 +553,19 @@
   z-index: 1200;
   inset: 0;
   padding: 2vh 1rem;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(12, 21, 15, 0.65);
   backdrop-filter: blur(3px);
 }
 
 .editorDialog {
   width: min(900px, 100%);
+  min-width: 0;
+  max-width: 100%;
   max-height: 96vh;
+  max-height: 96dvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -537,8 +580,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
   border-bottom: 1px solid #e8ede9;
   background: #fff;
+}
+
+.dialogHeader > div {
+  min-width: 0;
 }
 
 .eyebrow {
@@ -556,6 +604,7 @@
 }
 
 .iconButton {
+  flex-shrink: 0;
   width: 38px;
   height: 38px;
   border-radius: 7px;
@@ -567,12 +616,14 @@
 }
 
 .editorForm {
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-content: start;
   gap: 1.2rem;
   overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .formField,
@@ -591,6 +642,8 @@
 .formField textarea,
 .modalities input {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   min-height: 42px;
   padding: 0.65rem 0.75rem;
   border: 1px solid #d9e2dc;
@@ -611,7 +664,7 @@
 .formField input:focus,
 .formField textarea:focus,
 .modalities input:focus,
-.richTextField > textarea:focus {
+.richTextEditor:focus {
   border-color: #589a68;
   box-shadow: 0 0 0 3px rgba(52, 126, 70, 0.1);
 }
@@ -625,7 +678,9 @@
   grid-column: 1 / -1;
 }
 
-.richTextField > textarea {
+.richTextEditor {
+  width: 100%;
+  min-width: 0;
   min-height: 210px;
   padding: 0.8rem;
   border: 1px solid #d9e2dc;
@@ -633,14 +688,24 @@
   outline: 0;
   background: #fff;
   color: #29372e;
-  font: 0.83rem/1.55 Consolas, "Courier New", monospace;
-  resize: vertical;
+  font: inherit;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.richTextEditor:empty::before {
+  color: #9aa79d;
+  content: attr(data-placeholder);
+  pointer-events: none;
 }
 
 .editorToolbar {
   min-height: 40px;
   padding: 0.35rem 0.5rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem;
   border: 1px solid #d9e2dc;
@@ -699,6 +764,7 @@
 
 .modalities {
   min-width: 0;
+  max-width: 100%;
   margin: 0;
   padding: 1rem;
   display: grid;
@@ -715,6 +781,7 @@
 }
 
 .modalityCard {
+  min-width: 0;
   padding: 0.9rem;
   display: grid;
   gap: 0.8rem;
@@ -725,7 +792,7 @@
 
 .modalityHeader {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 0.7rem;
 }
 
@@ -747,7 +814,7 @@
 
 .podiumRow {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 0.6rem;
 }
 
@@ -756,8 +823,8 @@
 }
 
 .removeButton {
-  min-height: 36px;
-  padding: 0.4rem 0.55rem;
+  min-height: 38px;
+  padding: 0.4rem 0.65rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -768,7 +835,7 @@
   color: #a3544d;
   cursor: pointer;
   font: inherit;
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   white-space: nowrap;
 }
 
@@ -777,6 +844,7 @@
 }
 
 .checkboxField {
+  max-width: 100%;
   width: fit-content;
   display: flex;
   align-items: center;
@@ -787,8 +855,9 @@
 }
 
 .checkboxField input {
-  width: 17px;
-  height: 17px;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
   accent-color: #28774b;
 }
 
@@ -829,6 +898,9 @@
 }
 
 .fileField > input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   padding: 0.6rem;
   border: 1px dashed #cbd8ce;
   border-radius: 6px;
@@ -849,18 +921,18 @@
 
 .formActions {
   position: sticky;
-  bottom: -1.5rem;
-  margin: 0 -1.5rem -1.5rem;
+  bottom: 0;
+  margin: 0 -1.5rem;
   padding: 1rem 1.5rem;
   display: flex;
   justify-content: flex-end;
   gap: 0.65rem;
   border-top: 1px solid #e7ede8;
-  background: rgba(251, 252, 251, 0.96);
+  background: rgba(251, 252, 251, 0.97);
 }
 
 .cancelButton {
-  min-height: 42px;
+  min-height: 44px;
   padding: 0.65rem 1rem;
   border: 1px solid #d9e2dc;
   background: white;
@@ -873,10 +945,14 @@
 }
 
 .loginPage {
-  min-height: calc(100vh - var(--header-height));
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
   padding: calc(var(--header-height) + 3rem) 1.25rem 4rem;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: clip;
   background:
     radial-gradient(ellipse at 75% 30%, rgba(52, 189, 173, 0.1), transparent 35%),
     linear-gradient(135deg, #1e2823, #17221c);
@@ -889,7 +965,7 @@
   border-radius: 14px;
   background: rgba(30, 40, 35, 0.88);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.27);
-  color: #f4f4f4;
+  color: var(--font-white);
 }
 
 .loginIcon {
@@ -942,7 +1018,7 @@
   margin-top: 0.2rem;
   border-color: var(--gold);
   background: var(--gold);
-  color: #1e2823;
+  color: var(--black-1);
 }
 
 .loginForm .primaryButton:hover:not(:disabled) {
@@ -952,83 +1028,140 @@
 .loginFootnote {
   margin-top: 1.25rem;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
   gap: 0.45rem;
   color: rgba(249, 250, 251, 0.55);
   font-size: 0.72rem;
+  text-align: center;
 }
 
 .loginFootnote i {
   color: var(--lime);
 }
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
   .adminPage {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
   .sidebar {
     position: relative;
     top: auto;
     height: auto;
-    padding: 0.8rem 1rem;
+    width: 100%;
+    padding: 0.9rem 5vw;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand signout"
+      "nav nav";
+    align-items: center;
+    gap: 0.75rem;
+    overflow: visible;
   }
 
   .brand {
-    padding: 0.2rem 0.2rem 0.8rem;
+    grid-area: brand;
+    padding: 0;
   }
 
   .navCaption,
-  .sidebarBottom {
-    display: none;
-  }
-
-  .sidebarBottom {
-    display: flex;
-    justify-content: flex-end;
-  }
-
   .secureBadge {
     display: none;
   }
 
+  .sidebarBottom {
+    grid-area: signout;
+    margin-top: 0;
+    padding-top: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .signOutButton {
     width: auto;
-    padding: 0.45rem 0.6rem;
-    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 0.78rem;
+    white-space: nowrap;
   }
 
   .collectionNav {
+    grid-area: nav;
+    width: 100%;
+    max-width: 100%;
     display: flex;
+    gap: 0.45rem;
     overflow-x: auto;
-    padding-bottom: 0.15rem;
+    padding-bottom: 0.25rem;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .collectionNav::-webkit-scrollbar {
+    display: none;
   }
 
   .navItem {
     width: auto;
     flex: 0 0 auto;
-    padding: 0.65rem 0.75rem;
-    font-size: 0.8rem;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.82rem;
+    white-space: nowrap;
   }
 
-  .topbar {
-    min-height: 86px;
+  .navItemActive {
+    border-color: rgba(154, 225, 87, 0.35);
+    background: rgba(154, 225, 87, 0.16);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .brandIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+
+  .brand strong {
+    font-size: 0.95rem;
+  }
+
+  .brand div > span {
+    font-size: 0.72rem;
+  }
+
   .topbar {
-    align-items: flex-start;
+    min-height: auto;
+    padding: 1rem 5vw;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
   }
 
   .topbar h1 {
     font-size: 1.25rem;
   }
 
+  .mainContent {
+    padding: 1.25rem 5vw 2.5rem;
+  }
+
   .sectionHeading {
-    align-items: flex-start;
     flex-direction: column;
+    align-items: stretch;
+    gap: 0.9rem;
+  }
+
+  .sectionTitle h2 {
+    font-size: 1.35rem;
   }
 
   .sectionHeading > .primaryButton {
@@ -1036,45 +1169,122 @@
   }
 
   .toolbar {
-    align-items: flex-start;
+    margin: 1.15rem 0 1rem;
     flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
   }
 
   .searchBox {
     width: 100%;
   }
 
+  .searchBox input,
+  .formField input,
+  .formField textarea,
+  .modalities input,
+  .richTextEditor,
+  .loginForm .formField input {
+    font-size: 1rem;
+  }
+
   .recordGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.85rem;
   }
 
-  .editorForm {
-    padding: 1rem;
-    grid-template-columns: 1fr;
+  .modalBackdrop {
+    padding: 0.6rem;
+    align-items: flex-end;
   }
 
-  .formActions {
-    bottom: -1rem;
-    margin: 0 -1rem -1rem;
-    padding: 0.8rem 1rem;
+  .editorDialog {
+    width: 100%;
+    max-height: 92vh;
+    max-height: 92dvh;
+    border-radius: 14px 14px 10px 10px;
   }
 
   .dialogHeader {
-    padding: 1rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .dialogHeader h2 {
+    font-size: 1.15rem;
+  }
+
+  .editorForm {
+    padding: 1rem 1rem 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .modalities {
+    padding: 0.8rem;
+  }
+
+  .modalityCard {
+    padding: 0.75rem;
   }
 
   .modalityHeader,
   .podiumRow {
-    align-items: stretch;
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modalityHeader .removeButton {
+    width: 100%;
+  }
+
+  .podiumRow {
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid #eef2ef;
+  }
+
+  .podiumRow label:first-child {
+    flex: 1 1 auto;
   }
 
   .podiumRow .removeButton {
     align-self: flex-end;
   }
 
+  .filePreview {
+    width: calc(50% - 0.35rem);
+    max-width: 140px;
+  }
+
+  .formActions {
+    margin: 0 -1rem;
+    padding: 0.85rem 1rem;
+    flex-direction: column-reverse;
+  }
+
+  .formActions .primaryButton,
+  .formActions .cancelButton {
+    width: 100%;
+  }
+
+  .loginPage {
+    padding: calc(var(--header-height) + 1.5rem) 5vw 2.5rem;
+  }
+
   .loginCard {
-    padding: 1.5rem;
+    width: 100%;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .loginIcon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    font-size: 1.15rem;
+  }
+
+  .loginCard h1 {
+    font-size: 1.4rem;
   }
 }
 

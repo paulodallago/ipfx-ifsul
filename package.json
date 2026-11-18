@@ -19,8 +19,9 @@
   },
   "scripts": {
     "dev": "concurrently \"go run . serve\" \"react-scripts start\"",
-    "start": "./ipfx-server.exe serve",
-    "build": "react-scripts build && go build -o ./ipfx-server.exe"
+    "start": ".\\ipfx-server.exe serve --http=0.0.0.0:8090",
+    "build": "react-scripts build && cross-env GOOS=windows go build -o ./ipfx-server.exe",
+    "build-linux": "react-scripts build && cross-env GOOS=linux GOARCH=amd64 go build -o ipfx-server"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +45,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/webpack-env": "^1.18.8",
+    "cross-env": "^10.1.0",
     "gh-pages": "^6.3.0"
   }
 }

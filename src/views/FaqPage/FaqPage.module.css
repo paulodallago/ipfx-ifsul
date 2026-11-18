@@ -1,0 +1,138 @@
+.container {
+  width: 100vw;
+  min-height: 70vh;
+  background-image: url("../../assets/img/bkg.jpg");
+  background-size: contain;
+  padding-top: var(--header-height);
+  color: var(--font-white);
+}
+
+.content {
+  width: 50vw;
+  margin: 0 auto;
+  padding: 2rem 1rem 3.5rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0 0 1.25rem;
+}
+
+.subtitle {
+  margin: 0.5rem 0 0;
+  font-size: var(--font-1);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.item {
+  background: #ffffff;
+  border: 1px solid rgba(31, 42, 36, 0.1);
+  border-left: 4px solid var(--green-3);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.item:hover {
+  border-left-color: var(--green-2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.itemOpen {
+  border-left-color: var(--green-2);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: var(--font-black);
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.question:focus-visible {
+  outline: 2px solid var(--acqua);
+  outline-offset: -2px;
+  border-radius: 8px;
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--green-2);
+  font-size: 0.95rem;
+  transition: transform 0.25s ease;
+}
+
+.itemOpen .chevron {
+  transform: rotate(180deg);
+}
+
+.answerWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.itemOpen .answerWrapper {
+  grid-template-rows: 1fr;
+}
+
+.answerInner {
+  overflow: hidden;
+}
+
+.answer {
+  margin: 0;
+  padding: 0 1.25rem 1.2rem;
+  color: #333;
+  line-height: 1.65;
+  text-align: justify;
+  white-space: pre-line;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 3rem 1rem;
+  color: var(--font-muted);
+  text-align: center;
+}
+
+.empty i {
+  font-size: 2rem;
+  color: var(--green-2);
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 80vw;
+  }
+
+  .answer {
+    text-align: left;
+  }
+}
