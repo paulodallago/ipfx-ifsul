@@ -2,7 +2,8 @@
   width: 100vw;
   min-height: 70vh;
   background-image: url("../../assets/img/bkg.jpg");
-  background-size: contain;
+  background-size: cover;
+  background-attachment: fixed;
   padding-top: var(--header-height);
   color: var(--font-white);
 }
