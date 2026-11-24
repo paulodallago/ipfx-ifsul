@@ -19,8 +19,8 @@
     "swiper": "^14.0.7"
   },
   "scripts": {
-    "dev": "concurrently \".\\ipfx-server serve --http=0.0.0.0:8090\" \"react-scripts start\"",
-    "start": ".\\ipfx-server.exe serve --http=0.0.0.0:8090",
+    "dev": "concurrently \".\\ipfx-server serve --http=localhost:8090\" \"react-scripts start\"",
+    "start": ".\\ipfx-server.exe serve --http=localhost:8090",
     "build": "react-scripts build && cross-env GOOS=windows go build -o ./ipfx-server.exe",
     "build-linux": "react-scripts build && cross-env GOOS=linux GOARCH=amd64 go build -o ipfx-server"
   },
