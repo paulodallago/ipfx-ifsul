@@ -20,4 +20,4 @@ textos, contatos e apoiadores, incluindo imagens e conteúdo formatado.
 #### "deploy"
 
 - Copiar build e ipfx-server.exe pro servidor
-- ./ipfx-server --http=0.0.0.0:8090
+- ./ipfx-server serve --http=0.0.0.0:8090
