@@ -112,7 +112,7 @@ _(ou altere para `--http=0.0.0.0:8090` para permitir conexões externas)_
 
 ---
 
-## 🔒 Como Configurar HTTPS (SSL/TLS)
+## Como Configurar HTTPS (SSL/TLS)
 
 Em ambientes de produção, o uso de HTTPS é fundamental. Existem duas maneiras recomendadas de habilitar HTTPS no PocketBase:
 
@@ -141,7 +141,7 @@ _O PocketBase gerencia e renova os certificados SSL automaticamente._
 
 ---
 
-## 💾 Backup e Persistência de Dados
+## Backup e Persistência de Dados
 
 Todos os dados da aplicação estão centralizados no diretório **`pb_data/`**:
 
@@ -152,9 +152,3 @@ Para realizar um backup completo:
 
 1. Faça uma cópia segura da pasta `pb_data/`.
 2. O PocketBase também disponibiliza uma ferramenta de backup automático diretamente no painel **Dashboard** (`/_/` -> _Settings_ -> _Backups_).
-
----
-
-## 📄 Licença
-
-Projeto desenvolvido para a comunidade acadêmica do IFSUL.
