@@ -1,0 +1,25 @@
+# Dependencies and build outputs (rebuilt inside Docker)
+node_modules
+build
+ipfx-server
+ipfx-server.exe
+deploy.zip
+
+# Local database and uploads (mounted as a volume at runtime)
+pb_data
+
+# Version control and IDE
+.git
+.vscode
+
+# Local env and logs
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.log
+
+# Docker files
+Dockerfile
+docker.md
+.dockerignore

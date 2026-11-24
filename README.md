@@ -152,3 +152,40 @@ Para realizar um backup completo:
 
 1. Faça uma cópia segura da pasta `pb_data/`.
 2. O PocketBase também disponibiliza uma ferramenta de backup automático diretamente no painel **Dashboard** (`/_/` -> _Settings_ -> _Backups_).
+3. É possível fazer upload e restaurar backups pelo painel do PocketBase.
+
+## Docker
+
+### 1. Build
+
+```bash
+docker build -t ipfx-ifsul .
+```
+
+---
+
+### 2. Executar o container
+
+**Linux / macOS:**
+
+```bash
+docker run -d \
+  --name ipfx-ifsul \
+  -p 8090:8090 \
+  -v "$(pwd)/pb_data:/app/pb_data" \
+  --restart unless-stopped \
+  ipfx-ifsul
+```
+
+**Windows (PowerShell):**
+
+```powershell
+docker run -d `
+  --name ipfx-ifsul `
+  -p 8090:8090 `
+  -v "${PWD}/pb_data:/app/pb_data" `
+  --restart unless-stopped `
+  ipfx-ifsul
+```
+
+---
